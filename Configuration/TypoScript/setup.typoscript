@@ -1,0 +1,240 @@
+# ==============================================
+# FE-Plugin configuration for EXT:newsslider
+# ==============================================
+plugin.tx_newsslider {
+	view {
+		templateRootPaths.10 = {$plugin.tx_newsslider.view.templateRootPath}
+		partialRootPaths.10 = {$plugin.tx_newsslider.view.partialRootPath}
+		layoutRootPaths.10 = {$plugin.tx_newsslider.view.layoutRootPath}
+	}
+
+	settings < plugin.tx_news.settings
+	settings {
+		list.media.image.maxWidth = 100
+		list.media.image.maxHeigh = 100
+		# If using multiple JS-Libraries.
+		jqueryNoConflict = 0
+		# Shows only news from type=0 in the slider (no internal- and no external links) ... clear all cache!
+		newsOnly = 0
+		# slider plugin configuration
+		flexslider {
+			// all missing options can be set by flexform
+			# The slide that the slider should start on. Array notation (0 = first slide)
+			startAt = 0
+			# Set the speed of the slideshow cycling, in milliseconds
+			slideshowSpeed = 7000
+			# Set the speed of animations, in milliseconds
+			animationSpeed = 600
+			# Pause the slideshow when interacting with control elements, highly recommended.
+			pauseOnAction = true
+			# Pause the slideshow when hovering over slider, then resume when no longer hovering
+			pauseOnHover = false
+			# Slider will use CSS3 transitions if available
+			useCSS = true
+			# Allow touch swipe navigation of the slider on touch-enabled devices
+			touch = true
+			# String: Determines the easing method used in jQuery transitions. jQuery easing plugin is supported!
+			easing = swing
+			# String: Select the sliding direction, "horizontal" or "vertical"
+			direction = horizontal
+			# Boolean: Reverse the animation direction
+			reverse = false
+			# Boolean: Should the animation loop? If false, directionNav will received "disable" classes at either end
+			animationLoop = true
+			# Boolean: Allow height of the slider to animate smoothly in horizontal mode
+			smoothHeight = false
+			# Integer: Set an initialization delay, in milliseconds
+			initDelay = 0
+			# Boolean: Randomize slide order
+			randomize = false
+			# Boolean: If using video in the slider, will prevent CSS3 3D Transforms to avoid graphical glitches
+			video = false
+			# String: Set the text for the "previous" directionNav item
+			prevText = Previous
+			# String: Set the text for the "next" directionNav item
+			nextText = Next
+			# Boolean: Allow slider navigating via keyboard left/right keys
+			keyboard = true
+			# Boolean: Allow keyboard navigation to affect multiple sliders. Default behavior cuts out keyboard navigation with more than one slider present.
+			multipleKeyboard = false
+			# Boolean: Requires jquery.mousewheel.js (https://github.com/brandonaaron/jquery-mousewheel) - Allows slider navigating via mousewheel
+			mousewheel = false
+			# Boolean: Create pause/play dynamic element
+			pausePlay = false
+			# String: Set the text for the "pause" pausePlay item
+			pauseText = Pause
+			# String: Set the text for the "play" pausePlay item
+			playText = Play
+			// Carousel Options
+			# Integer: Carousel Options -> Margin between carousel items. If you change this, you have to edit the css-file (.carousel li {margin-right: 5px;})
+			itemMargin = 5
+			# Integer: Carousel Options -> Number of carousel items that should move on animation. If 0, slider will move all visible items.
+			move = 0
+			// Custom Options
+			# Boolean: Show caption in the slider
+			caption = 1
+			# 16by9 or 4by3 for style 1 (Basic Slider) only - slidersize should also have that relation!
+			videoSize = 16by9
+		}
+
+		nivoslider {
+			# For slice animations
+			slices = 15
+			# For box animations
+			boxCols = 8
+			# For box animations
+			boxRows = 4
+			# Slide transition speed
+			animSpeed = 500
+			# How long each slide will show
+			pauseTime = 4000
+			# Set starting Slide (0 index)
+			startSlide = 0
+			# Stop animation while hovering
+			pauseOnHover = true
+			# Start on a random slide
+			randomStart = false
+			# Prev directionNav text
+			prevText = Prev
+			# Next directionNav text
+			nextText = Next
+
+			// Custom Options
+			# For animated captions - Clear all cache after change
+			captionMoveIn {
+				width = 90%
+				height = auto
+				fontSize = 60px
+				left = 5%
+				top = 20%
+				duration = 500
+			}
+
+			# Clear all cache after change
+			captionMoveOut {
+				width = 0
+				height = auto
+				fontSize = 1px
+				left = 50%
+				top = 30%
+				duration = 0
+			}
+		}
+
+		camera {
+			# topLeft, topCenter, topRight, centerLeft, center, centerRight, bottomLeft, bottomCenter, bottomRight
+			alignment = center
+			# true, false
+			autoAdvance = 1
+			# true, false. Auto-advancing for mobile devices
+			mobileAutoAdvance = 1
+			# leftToRight, rightToLeft, topToBottom, bottomToTop
+			barDirection = leftToRight
+			# left, right, top, bottom
+			barPosition = bottom
+			cols = 6
+			# for the complete list http://jqueryui.com/demos/effect/easing.html
+			easing = easeInOutExpo
+			# leave empty if you want to display the same easing on mobile devices and on desktop etc.
+			mobileEasing =
+			# random, simpleFade, curtainTopLeft, curtainTopRight, curtainBottomLeft, curtainBottomRight, curtainSliceLeft, curtainSliceRight, blindCurtainTopLeft, blindCurtainTopRight, blindCurtainBottomLeft, blindCurtainBottomRight, blindCurtainSliceBottom, blindCurtainSliceTop, stampede, mosaic, mosaicReverse, mosaicRandom, mosaicSpiral, mosaicSpiralReverse, topLeftBottomRight, bottomRightTopLeft, bottomLeftTopRight, bottomLeftTopRight, scrollLeft, scrollRight, scrollHorz, scrollBottom, scrollTop
+			# N.B.: you can also use more than one effect, just separate them with commas: 'simpleFade, scrollRight, scrollBottom'
+			fx = random
+			# leave empty if you want to display the same effect on mobile devices and on desktop etc.
+			mobileFx =
+			# to make the grid blocks slower than the slices, this value must be smaller than transPeriod
+			gridDifference = 250
+			# here you can type pixels (for instance '300px'), a percentage (relative to the width of the slideshow, for instance '50%') or auto
+			height = 50%
+			# true, false. Pause on state hover. Not available for mobile devices
+			hover = 1
+			# the path to the image folder (it serves for the blank.gif, when you want to display videos)
+			imagePath = EXT:t3sbootstrap/Resources/Public/Styles/Camera/images/
+			# pie, bar, none (even if you choose "pie", old browsers like IE8- can't display it... they will display always a loading bar)
+			loader = pie
+			loaderColor = #eeeeee
+			loaderBgColor = #222222
+			# 0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1
+			loaderOpacity = .8
+			# how many empty pixels you want to display between the loader and its background
+			loaderPadding = 2
+			# the thickness both of the pie loader and of the bar loader. Remember: for the pie, the loader thickness must be less than a half of the pie diameter
+			loaderStroke = 7
+			# you can also leave it blank
+			minHeight = 200px
+			# if true the navigation button (prev, next and play/stop buttons) will be visible, if false they will be always hidden
+			navigation = 1
+			# if true the navigation button (prev, next and play/stop buttons) will be visible on hover state only, if false they will be visible always
+			navigationHover = 1
+			mobileNavHover = 1
+			# true, false. Decide to put a layer on the images to prevent the users grab them simply by clicking the right button of their mouse (.camera_overlayer)
+			overlayer = 1
+			# true, false
+			pagination = 1
+			# true or false, to display or not the play/pause buttons
+			playPause = 1
+			# true, false. It stops the slideshow when you click the sliders
+			pauseOnClick = 1
+			pieDiameter = 38
+			# 'rightTop', 'leftTop', 'leftBottom', 'rightBottom'
+			piePosition = rightTop
+			# true, false. Select true if you don't want that your images are cropped
+			portrait = 0
+			rows = 4
+			# if 0 the same value of cols
+			slicedCols = 12
+			# if 0 the same value of rows
+			slicedRows = 8
+			# next, prev, random: decide if the transition effect will be applied to the current (prev) or the next slide
+			slideOn = random
+			# true, false
+			thumbnails = 0
+			# milliseconds between the end of the sliding effect and the start of the nex one
+			time = 7000
+			# length of the sliding effect in milliseconds
+			transPeriod = 1500
+
+			video.width = 1110
+			video.height = 555
+
+			jQuery.mobile = {$plugin.tx_newsslider.settings.includeJqueryMobile}
+			jQuery.easing = {$plugin.tx_newsslider.settings.includeJqueryEasing}
+		}
+
+		slickslider {
+			autoplay = 0
+			# Set the speed of the slideshow cycling, in milliseconds
+			autoplaySpeed = 3000
+			# Set the speed of animations, in milliseconds
+			speed = 300
+			width = 1140
+			ratio = 16:9
+			slidesToShow = 1
+			slidesToScroll = 1
+			equal = 1
+			dots = 0
+			infinite = 1
+			responsive = 0
+			textonly = 0
+		}
+	}
+}
+
+lib.math = TEXT
+lib.math {
+	current = 1
+	prioriCalc = intval
+}
+
+[{$plugin.tx_newsslider.settings.includeJquery } == '1']
+page.includeJSFooterlibs {
+jql = //ajax.googleapis.com/ajax/libs/jquery/{$plugin.tx_newsslider.settings.jQueryVersion}/jquery.min.js
+jql {
+type = text/javascript
+external = 1
+forceOnTop = 1
+disableCompression = 1
+excludeFromConcatenation = 1
+}
+}
+[end]

@@ -1,0 +1,26 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:newsslider="http://typo3.org/ns/T3S/Newsslider/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{news}">
+	<f:if condition="{settings.nivoslider.cssFile}">
+		<f:then>
+			<newsslider:includeFile path="{settings.nivoslider.cssFile}"/>
+		</f:then>
+		<f:else>
+			<f:if condition="{settings.nivoslider.captions} == 2">
+				<f:then>
+					<newsslider:includeFile
+							path="EXT:newsslider/Resources/Public/Styles/Nivoslider/nivo-slider-anim.css"/>
+				</f:then>
+				<f:else>
+					<newsslider:includeFile path="EXT:newsslider/Resources/Public/Styles/Nivoslider/nivo-slider.css"/>
+				</f:else>
+			</f:if>
+			<newsslider:includeFile
+					path="EXT:newsslider/Resources/Public/Styles/Nivoslider/themes/{settings.nivoslider.theme}/{settings.nivoslider.theme}.css"/>
+		</f:else>
+	</f:if>
+	<newsslider:includeFile path="EXT:newsslider/Resources/Public/Scripts/jquery.nivo.slider.pack.js"/>
+	<newsslider:inlineJs contentObjectUid="{contentObjectData.uid}" action="nivoslider" settings="{settings}"/>
+	<f:render section="nivoslider"/>
+</f:if>
+</html>

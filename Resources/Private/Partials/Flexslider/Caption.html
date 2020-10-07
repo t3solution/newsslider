@@ -1,0 +1,36 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<span class="flex-caption{f:if(condition:'{settings.flexslider.animation} == \'slide\'', then:'-slide')}">
+	<f:if condition="{settings.flexslider.style} > 3">
+		<f:then>
+			<f:if condition="{settings.flexslider.style} == 4">
+				<f:comment><!-- Style 4 (Carousel) --></f:comment>
+				<span class="caption-title {f:if(condition:'{newsItem.istopnews}', then:' topnews')}">
+					<n:link newsItem="{newsItem}" settings="{settings}">{newsItem.title}</n:link>
+				</span>
+			</f:if>
+			<f:if condition="{settings.flexslider.style} == 5">
+				<f:comment><!-- Style 5 (Carousel with min and max ranges) --></f:comment>
+				<span class="caption-title">
+					<n:link newsItem="{newsItem}" settings="{settings}">{newsItem.title}</n:link>
+				</span>
+			</f:if>
+		</f:then>
+		<f:else>
+			<span class="caption-title {f:if(condition:'{newsItem.istopnews}', then:' topnews')}">
+				<n:link newsItem="{newsItem}" settings="{settings}">{newsItem.title}</n:link>
+			</span>
+			<span class="caption-text d-none d-sm-block mt-2">
+			<f:if condition="{newsItem.teaser}">
+				<f:then>
+					{newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+				</f:then>
+				<f:else>
+					{newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+				</f:else>
+			</f:if>
+			</span>
+		</f:else>
+	</f:if>
+</span>
+</html>

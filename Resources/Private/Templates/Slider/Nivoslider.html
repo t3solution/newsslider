@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Nivoslider"/>
+<f:section name="nivoslider">
+	<div class="tx_newsslider slider-wrapper theme-{settings.nivoslider.theme}"
+		 style="max-width:{settings.nivoslider.width}px; height:auto;">
+		<div class="ribbon"></div>
+		<div id="slider_{contentObjectData.uid}" class="nivoSlider">
+			<f:for each="{news}" as="newsItem" iteration="i">
+				<n:excludeDisplayedNews newsItem="{newsItem}"/>
+				<f:render partial="Nivoslider/Media" arguments="{_all}"/>
+			</f:for>
+		</div>
+	</div>
+	<f:comment><!-- CAPTION --></f:comment>
+	<f:if condition="{settings.nivoslider.captions} == 1">
+		<f:render partial="Nivoslider/Caption" arguments="{news:news}"/>
+	</f:if>
+	<f:if condition="{settings.nivoslider.captions} == 2">
+		<f:render partial="Nivoslider/AnimCaption" arguments="{news:news}"/>
+	</f:if>
+</f:section>
+</html>

@@ -1,0 +1,52 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Camera"/>
+<f:section name="Camera">
+	<f:for each="{news}" as="newsItem">
+		<n:excludeDisplayedNews newsItem="{newsItem}"/>
+		<f:if condition="{newsItem.mediaPreviews}">
+			<f:then>
+				<f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+					<f:if condition="{mediaElement.originalResource.originalFile.properties.type} == '4'">
+						<f:then>
+							<div data-src="{f:uri.image(src:mediaElement.uid, treatIdAsReference:1, width:1110)}"
+								 data-video="hide">
+								<f:media class="video-iframe" file="{mediaElement}" width="1110" height="555"/>
+							</div>
+						</f:then>
+						<f:else>
+							<div data-src="{f:uri.image(src:mediaElement.uid, treatIdAsReference:1, width:settings.camera.width)}">
+								<f:if condition="{settings.camera.captions}">
+									<f:then>
+										<div class="camera_caption {settings.camera.captions}">
+											<h4 class="caption-title {f:if(condition:'{newsItem.istopnews}', then:' topnews')}"
+												style="margin:0;">
+												<n:link newsItem="{newsItem}" settings="{settings}">{newsItem.title}
+												</n:link>
+											</h4>
+											<div class="d-none d-sm-block">
+												<f:if condition="{newsItem.teaser}">
+													<f:then>
+														{newsItem.teaser -> f:format.crop(maxCharacters:
+														'{settings.cropMaxCharacters}', respectWordBoundaries:'1') ->
+														f:format.html()}
+													</f:then>
+													<f:else>
+														{newsItem.bodytext -> f:format.crop(maxCharacters:
+														'{settings.cropMaxCharacters}', respectWordBoundaries:'1') ->
+														f:format.html()}
+													</f:else>
+												</f:if>
+											</div>
+										</div>
+									</f:then>
+								</f:if>
+							</div>
+						</f:else>
+					</f:if>
+				</f:alias>
+			</f:then>
+		</f:if>
+	</f:for>
+</f:section>
+</html>

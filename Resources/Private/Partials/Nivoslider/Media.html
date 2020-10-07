@@ -1,0 +1,41 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+	<f:if condition="{mediaElement.originalResource.type} < 3">
+		<f:if condition="{settings.nivoslider.imageLink}">
+			<f:then>
+				<n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+					<f:render section="media" arguments="{_all}"/>
+				</n:link>
+			</f:then>
+			<f:else>
+				<f:render section="media" arguments="{_all}"/>
+			</f:else>
+		</f:if>
+	</f:if>
+</f:alias>
+</html>
+
+<f:section name="media">
+	<f:if condition="{mediaElement}">
+		<f:then>
+			<f:media
+					file="{mediaElement.originalResource}"
+					alt="{mediaElement.originalResource.alternative}"
+					title="{f:if(condition: '{settings.nivoslider.captions}',then: '#htmlcaption-{i.cycle}')}"
+					width="{settings.nivoslider.width}c"
+					height="{settings.nivoslider.height}c"
+					class="img-responsive img-fluid"
+			/>
+		</f:then>
+		<f:else>
+			<f:image src="{settings.list.media.dummyImage}"
+					 alt="dummy image"
+					 title="{f:if(condition: '{settings.nivoslider.captions}',then: '#htmlcaption-{i.cycle}')}"
+					 width="{settings.nivoslider.width}c"
+					 height="{settings.nivoslider.height}c"
+					 class="img-responsive img-fluid"
+			/>
+		</f:else>
+	</f:if>
+</f:section>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-08-05T13:17:18Z"
+		  product-name="newsslider">
+		<header/>
+		<body>
+
+			<trans-unit id="pi1_title" xml:space="preserve">
+			<target>News slider</target>
+		</trans-unit>
+			<trans-unit id="pi1_plus_wiz_description" xml:space="preserve">
+			<target>jQuery slider-plugins for versatile news extension (tx_news).</target>
+		</trans-unit>
+			<trans-unit id="flexform.sheetTitle" xml:space="preserve">
+			<target>News slider</target>
+		</trans-unit>
+			<trans-unit id="flexform.maxWidth" xml:space="preserve">
+			<target>max. Sliderbreite in px:</target>
+		</trans-unit>
+			<trans-unit id="flexform.maxHeight" xml:space="preserve">
+			<target>max. Sliderhöhe in px:</target>
+		</trans-unit>
+			<trans-unit id="flexform.auto" xml:space="preserve">
+			<target>Automatische Animation:</target>
+		</trans-unit>
+			<trans-unit id="flexform.directionNav" xml:space="preserve">
+			<target>Vor-/Zurück Navigation:</target>
+		</trans-unit>
+			<trans-unit id="flexform.controlNav" xml:space="preserve">
+			<target>1,2,3... Navigation:</target>
+		</trans-unit>
+			<trans-unit id="flexform.imageLink" xml:space="preserve">
+			<target>Bild als Link:</target>
+		</trans-unit>
+			<trans-unit id="flexform.video" xml:space="preserve">
+			<target>Video im Slider:</target>
+		</trans-unit>
+			<trans-unit id="flexform.css" xml:space="preserve">
+			<target>CSS-File:</target>
+		</trans-unit>
+			<trans-unit id="flexform.slideshowSpeed" xml:space="preserve">
+			<target>Slideshow Speed:</target>
+		</trans-unit>
+			<trans-unit id="flexform.animationSpeed" xml:space="preserve">
+			<target>Animation Speed:</target>
+		</trans-unit>
+
+			<!-- Flexslider -->
+			<trans-unit id="flexform.style" xml:space="preserve">
+			<target>Slider Stil:</target>
+		</trans-unit>
+			<trans-unit id="flexform.style.II.0" xml:space="preserve">
+			<target>Basic Slider</target>
+		</trans-unit>
+			<trans-unit id="flexform.style.II.1" xml:space="preserve">
+			<target>Slider mit/thumbnail controlNav pattern</target>
+		</trans-unit>
+			<trans-unit id="flexform.style.II.2" xml:space="preserve">
+			<target>Slider mit/thumbnail slider</target>
+		</trans-unit>
+			<trans-unit id="flexform.style.II.3" xml:space="preserve">
+			<target>Basic Carousel</target>
+		</trans-unit>
+			<trans-unit id="flexform.style.II.4" xml:space="preserve">
+			<target>Carousel mit min und max Anzahl</target>
+		</trans-unit>
+
+			<trans-unit id="flexform.animationType" xml:space="preserve">
+			<target>Animations Typ:</target>
+		</trans-unit>
+
+			<trans-unit id="flexform.thumbHeight" xml:space="preserve">
+			<target>Thumbnail Höhe in px:</target>
+		</trans-unit>
+			<trans-unit id="flexform.thumbNumber" xml:space="preserve">
+			<target>Anzahl der sichbaren Thumbnails:</target>
+		</trans-unit>
+			<trans-unit id="flexform.minItems" xml:space="preserve">
+			<target>Min. Anzahl der sichbaren Thumbnails:</target>
+		</trans-unit>
+			<trans-unit id="flexform.maxItems" xml:space="preserve">
+			<target>Max. Anzahl der sichbaren Thumbnails:</target>
+		</trans-unit>
+
+
+			<!-- Nivoslider -->
+			<trans-unit id="flexform.theme" xml:space="preserve">
+			<target>Thema:</target>
+		</trans-unit>
+			<trans-unit id="flexform.effect" xml:space="preserve">
+			<target>Effekt:</target>
+		</trans-unit>
+
+			<trans-unit id="flexform.captions" xml:space="preserve">
+			<target>Bildunterschrift:</target>
+		</trans-unit>
+
+			<trans-unit id="flexform.captions.I.0" xml:space="preserve">
+			<target>keine</target>
+		</trans-unit>
+			<trans-unit id="flexform.captions.I.1" xml:space="preserve">
+			<target>standard</target>
+		</trans-unit>
+			<trans-unit id="flexform.captions.I.2" xml:space="preserve">
+			<target>animiert</target>
+		</trans-unit>
+
+			<trans-unit id="flexform.loader" xml:space="preserve">
+			<target>Loader:</target>
+		</trans-unit>
+
+
+			<!-- Customslider -->
+			<trans-unit id="flexform.js" xml:space="preserve">
+			<target>JS-Datei:</target>
+		</trans-unit>
+			<trans-unit id="flexform.js" xml:space="preserve">
+			<target>Inline JS:</target>
+		</trans-unit>
+
+
+			<trans-unit id="pi1_plus_wiz_description" xml:space="preserve">
+			<target>Slider für: Versatile news system</target>
+		</trans-unit>
+			<trans-unit id="flexforms_slider.mode.slider_flexslider" xml:space="preserve">
+			<target>Flexslider</target>
+		</trans-unit>
+			<trans-unit id="flexforms_slider.mode.slider_nivoslider" xml:space="preserve">
+			<target>Nivoslider</target>
+		</trans-unit>
+			<trans-unit id="flexforms_slider.mode.slider_customslider" xml:space="preserve">
+			<target>Customslider</target>
+		</trans-unit>
+
+			<trans-unit id="flexforms_slider.flexslider.1" xml:space="preserve">
+			<target>Basic Slider</target>
+		</trans-unit>
+			<trans-unit id="flexforms_slider.flexslider.2" xml:space="preserve">
+			<target>Slider mit/thumbnail controlNav pattern</target>
+		</trans-unit>
+			<trans-unit id="flexforms_slider.flexslider.3" xml:space="preserve">
+			<target>Slider mit/thumbnail slider</target>
+		</trans-unit>
+			<trans-unit id="flexforms_slider.flexslider.4" xml:space="preserve">
+			<target>Basic Carousel</target>
+		</trans-unit>
+			<trans-unit id="flexforms_slider.flexslider.5" xml:space="preserve">
+			<target>Carousel mit min und max Anzahl</target>
+		</trans-unit>
+
+			<trans-unit id="flexforms_slider.nivoslider.default" xml:space="preserve">
+			<target>Theme: default</target>
+		</trans-unit>
+			<trans-unit id="flexforms_slider.nivoslider.light" xml:space="preserve">
+			<target>Theme: light</target>
+		</trans-unit>
+			<trans-unit id="flexforms_slider.nivoslider.dark" xml:space="preserve">
+			<target>Theme: dark</target>
+		</trans-unit>
+			<trans-unit id="flexforms_slider.nivoslider.bar" xml:space="preserve">
+			<target>Theme: bar</target>
+		</trans-unit>
+
+
+		</body>
+	</file>
+</xliff>

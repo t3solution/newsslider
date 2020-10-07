@@ -1,0 +1,24 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:for each="{news}" as="newsItem" iteration="i">
+	<f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+		<f:if condition="{mediaElement.originalResource.type} < 3">
+			<div id="htmlcaption-{i.cycle}" class="nivo-html-caption">
+				<h4 class="caption-title {f:if(condition:'{newsItem.istopnews}', then:' topnews')}" style="margin:0;">
+					<n:link newsItem="{newsItem}" settings="{settings}"> {newsItem.title}</n:link>
+				</h4>
+				<span class="caption d-none d-sm-block">
+			<f:if condition="{newsItem.teaser}">
+				<f:then>
+					{newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+				</f:then>
+				<f:else>
+					{newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+				</f:else>
+			</f:if>
+		</span>
+			</div>
+		</f:if>
+	</f:alias>
+</f:for>
+</html>

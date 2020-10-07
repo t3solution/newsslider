@@ -1,0 +1,70 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Flexslider"/>
+<f:section name="Flexslider">
+	<f:for each="{news}" as="newsItem">
+		<n:excludeDisplayedNews newsItem="{newsItem}"/>
+		<f:if condition="{settings.flexslider.style} == 2">
+			<f:then>
+				<f:comment><!-- Style 2 --></f:comment>
+				<li data-thumb="{f:render(section:'ThumbnailSrc', arguments:'{newsItem:newsItem, settings:settings}')}">
+			</f:then>
+			<f:else>
+				<li>
+			</f:else>
+		</f:if>
+		<f:render section="Default" arguments="{newsItem:newsItem, settings:settings}"/>
+		<f:if condition="{settings.flexslider.caption}">
+			<f:comment><!-- Caption --></f:comment>
+			<f:if condition="{settings.flexslider.style} == 5">
+				<f:else>
+					<f:render partial="Flexslider/Caption" arguments="{newsItem:newsItem, settings:settings}"/>
+				</f:else>
+			</f:if>
+		</f:if>
+		</li>
+	</f:for>
+</f:section>
+
+<f:section name="Default">
+	<f:if condition="{settings.flexslider.style} == 4">
+		<f:comment><!-- Style 4 (Carousel) --></f:comment>
+		<f:variable name="width">
+			{f:cObject(typoscriptObjectPath:'lib.math',data:'({settings.flexslider.width}-8-({settings.flexslider.thumbnumber}
+			*{settings.flexslider.itemMargin}-{settings.flexslider.itemMargin}))/{settings.flexslider.thumbnumber}')}
+		</f:variable>
+		<f:variable name="height">{settings.flexslider.thumbheight}</f:variable>
+
+	</f:if>
+	<f:if condition="{settings.flexslider.style} == 5">
+		<f:comment><!-- Style 5 (Carousel with min and max ranges) --></f:comment>
+		<f:variable name="width">
+			{f:cObject(typoscriptObjectPath:'lib.math',data:'({settings.flexslider.width}-8-(({settings.flexslider.maxItems}-1)
+			*{settings.flexslider.itemMargin}-{settings.flexslider.itemMargin}))/({settings.flexslider.maxItems}-1)')}
+		</f:variable>
+		<f:variable name="height">{settings.flexslider.thumbheight}</f:variable>
+	</f:if>
+	<f:render partial="Flexslider/Media"
+			  arguments="{newsItem:newsItem, settings:settings, width:width, height:height }"/>
+</f:section>
+
+
+<f:comment><!-- Thumbnail ControlNav Pattern - for Style 2 --></f:comment>
+<f:section name="ThumbnailSrc">
+	<f:alias map="{thumbnailScr: newsItem.mediaPreviews.0}">
+		<f:comment><!-- IMAGE --></f:comment>
+		<f:if condition="{thumbnailScr.uid} && {thumbnailScr.originalResource.type} == 2">
+			<f:then>
+				<f:uri.image src="{thumbnailScr.uid}" treatIdAsReference="1"
+							 width="{f:cObject(typoscriptObjectPath:'lib.math',data:'({settings.flexslider.width}-8)/4')}c"
+							 height="{f:cObject(typoscriptObjectPath:'lib.math',data:'{settings.flexslider.height}/4')}c"/>
+			</f:then>
+			<f:else>
+				<f:uri.image src="{settings.list.media.dummyImage}"
+							 width="{f:cObject(typoscriptObjectPath:'lib.math',data:'({settings.flexslider.width}-8)/4')}c"
+							 height="{f:cObject(typoscriptObjectPath:'lib.math',data:'{settings.flexslider.height}/4')}c"/>
+			</f:else>
+		</f:if>
+	</f:alias>
+</f:section>
+</html>

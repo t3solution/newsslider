@@ -1,0 +1,19 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:newsslider="http://typo3.org/ns/T3S/Newsslider/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{news}">
+	<newsslider:includeFile path="EXT:newsslider/Resources/Public/Styles/Slickslider/slick.css"/>
+	<f:if condition="{settings.slickslider.cssFile}">
+		<f:then>
+			<newsslider:includeFile path="{settings.slickslider.cssFile}"/>
+		</f:then>
+		<f:else>
+			<newsslider:includeFile path="EXT:newsslider/Resources/Public/Styles/Slickslider/slick-theme.css"/>
+		</f:else>
+	</f:if>
+	<newsslider:includeFile path="EXT:newsslider/Resources/Public/Scripts/slick.min.js"/>
+	<newsslider:inlineJs contentObjectUid="{contentObjectData.uid}" action="slickslider" settings="{settings}"/>
+	<div id="slick_wrap_{contentObjectData.uid}" class="t3s-slickslider card-group">
+		<f:render section="Slick"/>
+	</div>
+</f:if>
+</html>

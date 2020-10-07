@@ -1,0 +1,21 @@
+plugin.tx_newsslider {
+	view {
+		# cat=plugin.tx_newsslider/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:newsslider/Resources/Private/Templates/
+		# cat=plugin.tx_newsslider/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:newsslider/Resources/Private/Partials/
+		# cat=plugin.tx_newsslider/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:newsslider/Resources/Private/Layouts/
+	}
+
+	settings {
+		# cat=plugin.tx_newsslider/enable/001; type=boolean; label=Load jQuery library by Google CDN:
+		includeJquery = 0
+		# cat=plugin.tx_newsslider/enable/002; type=small; label=jQuery version:
+		jQueryVersion = 3.4.1
+		# cat=plugin.tx_newsslider/enable/003; type=boolean; label=Load jQuery Mobile: if you want to use some functionalities with Camera slideshow
+		includeJqueryMobile = 0
+		# cat=plugin.tx_newsslider/enable/004; type=boolean; label=Load jQuery Easing: if you want to use some functionalities with Camera slideshow
+		includeJqueryEasing = 0
+	}
+}

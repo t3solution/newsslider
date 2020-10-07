@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-08-05T13:17:18Z"
+		  product-name="newsslider">
+		<header/>
+		<body>
+
+			<trans-unit id="pi1_title" xml:space="preserve">
+				<source>News slider</source>
+			</trans-unit>
+			<trans-unit id="pi1_plus_wiz_description" xml:space="preserve">
+				<source>jQuery slider-plugins for versatile news extension (tx_news).</source>
+			</trans-unit>
+			<trans-unit id="flexform.sheetTitle" xml:space="preserve">
+				<source>News slider</source>
+			</trans-unit>
+			<trans-unit id="flexform.maxWidth" xml:space="preserve">
+				<source>max. Slider-Width in px:</source>
+			</trans-unit>
+			<trans-unit id="flexform.maxHeight" xml:space="preserve">
+				<source>max. Slider-Height in px:</source>
+			</trans-unit>
+			<trans-unit id="flexform.auto" xml:space="preserve">
+				<source>Automatic Animation:</source>
+			</trans-unit>
+			<trans-unit id="flexform.directionNav" xml:space="preserve">
+				<source>Previous/next navigation:</source>
+			</trans-unit>
+			<trans-unit id="flexform.controlNav" xml:space="preserve">
+				<source>1,2,3... navigation:</source>
+			</trans-unit>
+			<trans-unit id="flexform.imageLink" xml:space="preserve">
+				<source>Image as Link:</source>
+			</trans-unit>
+			<trans-unit id="flexform.video" xml:space="preserve">
+				<source>Video in slider:</source>
+			</trans-unit>
+			<trans-unit id="flexform.css" xml:space="preserve">
+				<source>CSS-File:</source>
+			</trans-unit>
+			<trans-unit id="flexform.slideshowSpeed" xml:space="preserve">
+				<source>Slideshow Speed:</source>
+			</trans-unit>
+			<trans-unit id="flexform.animationSpeed" xml:space="preserve">
+				<source>Animation Speed:</source>
+			</trans-unit>
+
+			<!-- Flexslider -->
+			<trans-unit id="flexform.style" xml:space="preserve">
+				<source>Slider Style:</source>
+			</trans-unit>
+			<trans-unit id="flexform.style.II.0" xml:space="preserve">
+				<source>Basic Slider</source>
+			</trans-unit>
+			<trans-unit id="flexform.style.II.1" xml:space="preserve">
+				<source>Slider w/thumbnail controlNav pattern</source>
+			</trans-unit>
+			<trans-unit id="flexform.style.II.2" xml:space="preserve">
+				<source>Slider w/thumbnail slider</source>
+			</trans-unit>
+			<trans-unit id="flexform.style.II.3" xml:space="preserve">
+				<source>Basic Carousel</source>
+			</trans-unit>
+			<trans-unit id="flexform.style.II.4" xml:space="preserve">
+				<source>Carousel with min and max ranges</source>
+			</trans-unit>
+
+			<trans-unit id="flexform.animationType" xml:space="preserve">
+				<source>Animation Type:</source>
+			</trans-unit>
+
+			<trans-unit id="flexform.thumbHeight" xml:space="preserve">
+				<source>Thumbnail Height in px:</source>
+			</trans-unit>
+			<trans-unit id="flexform.thumbNumber" xml:space="preserve">
+				<source>Number of Thumbnails that should be visible:</source>
+			</trans-unit>
+			<trans-unit id="flexform.minItems" xml:space="preserve">
+				<source>Minimum number of carousel items that should be visible:</source>
+			</trans-unit>
+			<trans-unit id="flexform.maxItems" xml:space="preserve">
+				<source>Maxmimum number of carousel items that should be visible:</source>
+			</trans-unit>
+
+
+			<!-- Nivoslider -->
+			<trans-unit id="flexform.theme" xml:space="preserve">
+				<source>Theme:</source>
+			</trans-unit>
+			<trans-unit id="flexform.effect" xml:space="preserve">
+				<source>Effect:</source>
+			</trans-unit>
+
+			<trans-unit id="flexform.captions" xml:space="preserve">
+				<source>Captions:</source>
+			</trans-unit>
+
+			<trans-unit id="flexform.captions.I.0" xml:space="preserve">
+				<source>none</source>
+			</trans-unit>
+			<trans-unit id="flexform.captions.I.1" xml:space="preserve">
+				<source>default</source>
+			</trans-unit>
+			<trans-unit id="flexform.captions.I.2" xml:space="preserve">
+				<source>animated</source>
+			</trans-unit>
+
+
+			<trans-unit id="flexform.loader" xml:space="preserve">
+				<source>Loader:</source>
+			</trans-unit>
+
+
+			<!-- Customslider -->
+			<trans-unit id="flexform.js" xml:space="preserve">
+				<source>JS-File:</source>
+			</trans-unit>
+			<trans-unit id="flexform.inlineJs" xml:space="preserve">
+				<source>Inline JS:</source>
+			</trans-unit>
+
+
+			<!-- PageLayoutView -->
+			<trans-unit id="pi1_title" xml:space="preserve">
+				<source>News slider</source>
+			</trans-unit>
+			<trans-unit id="pi1_plus_wiz_description" xml:space="preserve">
+				<source>Slider for: Versatile news system</source>
+			</trans-unit>
+			<trans-unit id="flexforms_slider.mode.slider_flexslider" xml:space="preserve">
+				<source>Flexslider</source>
+			</trans-unit>
+			<trans-unit id="flexforms_slider.mode.slider_nivoslider" xml:space="preserve">
+				<source>Nivoslider</source>
+			</trans-unit>
+			<trans-unit id="flexforms_slider.mode.slider_customslider" xml:space="preserve">
+				<source>Customslider</source>
+			</trans-unit>
+
+			<trans-unit id="flexforms_slider.flexslider.1" xml:space="preserve">
+				<source>Basic Slider</source>
+			</trans-unit>
+			<trans-unit id="flexforms_slider.flexslider.2" xml:space="preserve">
+				<source>Slider w/thumbnail controlNav pattern</source>
+			</trans-unit>
+			<trans-unit id="flexforms_slider.flexslider.3" xml:space="preserve">
+				<source>Slider w/thumbnail slider</source>
+			</trans-unit>
+			<trans-unit id="flexforms_slider.flexslider.4" xml:space="preserve">
+				<source>Basic Carousel</source>
+			</trans-unit>
+			<trans-unit id="flexforms_slider.flexslider.5" xml:space="preserve">
+				<source>Carousel with min and max ranges</source>
+			</trans-unit>
+
+			<trans-unit id="flexforms_slider.nivoslider.default" xml:space="preserve">
+				<source>Theme: default</source>
+			</trans-unit>
+			<trans-unit id="flexforms_slider.nivoslider.light" xml:space="preserve">
+				<source>Theme: light</source>
+			</trans-unit>
+			<trans-unit id="flexforms_slider.nivoslider.dark" xml:space="preserve">
+				<source>Theme: dark</source>
+			</trans-unit>
+			<trans-unit id="flexforms_slider.nivoslider.bar" xml:space="preserve">
+				<source>Theme: bar</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

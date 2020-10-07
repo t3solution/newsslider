@@ -1,0 +1,71 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Slickslider"/>
+<f:section name="Slick">
+	<f:for each="{news}" as="newsItem">
+		<n:excludeDisplayedNews newsItem="{newsItem}"/>
+		<n:link newsItem="{newsItem}" settings="{settings}" class="card slick-link">
+			<f:if condition="{newsItem.mediaPreviews} && !{settings.slickslider.textonly}">
+				<f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+					<f:if condition="{mediaElement.originalResource.type} < 3">
+						<f:image src="{mediaElement.uid}" treatIdAsReference="1"
+								 title="{newsItem.title}"
+								 alt="{mediaElement.originalResource.alternative}"
+								 width="{settings.slickslider.width}c"
+								 height="{settings.slickslider.height}c"
+								 class="card-img-top img-fluid"/>
+					</f:if>
+				</f:alias>
+			</f:if>
+			<div class="card-body">
+				<f:render section="Info" arguments="{_all}"/>
+				<h5 class="card-title">{newsItem.title}</h5>
+				<p class="card-text">
+					<f:if condition="{newsItem.teaser}">
+						<f:then>
+							{newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}',
+							respectWordBoundaries:'1') -> f:format.html()}
+						</f:then>
+						<f:else>
+							{newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}',
+							respectWordBoundaries:'1') -> f:format.html()}
+						</f:else>
+					</f:if>
+				</p>
+			</div>
+		</n:link>
+	</f:for>
+</f:section>
+</html>
+
+
+<f:section name="Info">
+	<p><small class="text-muted">
+		<!-- date -->
+		<span class="news-list-date">
+		<time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+			<f:format.date
+					format="{f:translate(key:'LLL:EXT:news/Resources/Private/Language/locallang.xml:dateFormat')}">{newsItem.datetime}</f:format.date>
+		</time>
+	</span>
+		<f:if condition="{newsItem.firstCategory}">
+			<!-- first category -->
+			<span class="news-list-category">{newsItem.firstCategory.title}</span>
+		</f:if>
+		<f:if condition="{newsItem.tags}">
+			<!-- Tags -->
+			<span class="news-list-tags" itemprop="keywords">
+			<f:for each="{newsItem.tags}" as="tag">
+				{tag.title}
+			</f:for>
+		</span>
+		</f:if>
+		<!-- author -->
+		<f:if condition="{newsItem.author}">
+		<span class="news-list-author">
+			<f:translate key="LLL:EXT:news/Resources/Private/Language/locallang.xml:author"
+						 arguments="{0:newsItem.author}"/>
+		</span>
+		</f:if>
+	</small></p>
+</f:section>

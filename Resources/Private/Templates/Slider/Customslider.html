@@ -1,0 +1,40 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Customslider"/>
+<f:section name="Customslider">
+
+	<f:debug title="Results of all">{_all}</f:debug>
+	<f:debug title="Results of settings.customslider">{settings.customslider}</f:debug>
+
+	<f:comment><!--
+
+	EXAMPLE
+	put your custom HTML markup here
+
+--></f:comment>
+	<f:for each="{news}" as="newsItem">
+		<f:if condition="{newsItem.mediaPreviews}">
+			<f:then>
+				<f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+					<n:link newsItem="{newsItem}" settings="{settings}">
+						<f:image src="{mediaElement.uid}" treatIdAsReference="1"
+								 title="{newsItem.title}"
+								 alt="{mediaElement.originalResource.alternative}"
+								 width="{settings.customslider.width}c"
+								 height="{settings.customslider.height}c"/>
+					</n:link>
+				</f:alias>
+			</f:then>
+			<f:else>
+				<n:link newsItem="{newsItem}" settings="{settings}">
+					<f:image src="{settings.list.media.dummyImage}"
+							 title="{newsItem.title}"
+							 alt="{mediaElement.originalResource.alternative}"
+							 width="{settings.customslider.width}c"
+							 height="{settings.customslider.height}c"/>
+				</n:link>
+			</f:else>
+		</f:if>
+	</f:for>
+</f:section>
+</html>
