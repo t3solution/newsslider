@@ -13,6 +13,8 @@ FlexSlider © 2012, WooThemes http://www.woothemes.com/flexslider/
 
 Slick by Ken Wheeler http://kenwheeler.github.io
 
+Swiper by © 2014-2021, Vladimir Kharlampidi https://swiperjs.com/
+
 
 This document is published under the Open Content License available from http://www.opencontent.org/opl.shtml
 The content of this document is related to TYPO3 - a GNU/GPL CMS/Framework available from www.typo3.org

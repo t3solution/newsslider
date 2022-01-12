@@ -1606,37 +1606,7 @@
 							</config>
 						</TCEforms>
 					</settings.slickslider.ratio>
-					<!--
-										<settings.slickslider.layout>
-											<TCEforms>
-												<displayCond>FIELD:switchableControllerActions:=:Slider->slickslider</displayCond>
-												<label>Card layout (Bootstrap)</label>
-												<config>
-													<type>select</type>
-													<renderType>selectSingle</renderType>
-													<size>1</size>
-													<default>group</default>
-													<maxitems>1</maxitems>
-													<items type="array">
-														<numIndex index="0" type="array">
-															<numIndex index="0">Card groups</numIndex>
-															<numIndex index="1">group</numIndex>
-														</numIndex>
 
-														<numIndex index="1" type="array">
-															<numIndex index="0">Card decks (experimental)</numIndex>
-															<numIndex index="1">deck</numIndex>
-														</numIndex>
-														<numIndex index="2" type="array">
-															<numIndex index="0">Card columns (experimental)</numIndex>
-															<numIndex index="1">columns</numIndex>
-														</numIndex>
-
-													</items>
-												</config>
-											</TCEforms>
-										</settings.slickslider.layout>
-					-->
 					<settings.slickslider.slidesToShow>
 						<TCEforms>
 							<displayCond>FIELD:switchableControllerActions:=:Slider->slickslider</displayCond>

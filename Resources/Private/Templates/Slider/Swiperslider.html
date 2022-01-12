@@ -1,0 +1,89 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Swiperslider"/>
+<f:section name="Swiperslider">
+<div id="swiper-{contentObjectData.uid}" class="swiper">
+	<div class="swiper-wrapper">
+		<f:for each="{news}" as="newsItem">
+			<n:excludeDisplayedNews newsItem="{newsItem}"/>
+			<div class="swiper-slide"{f:if(condition: settings.swiperslider.autoplay, then: ' data-swiper-autoplay="{settings.swiperslider.delay}"')}>
+				<n:link newsItem="{newsItem}" settings="{settings}" class="slider-link no-decoration">
+					<div class="card rounded-0"{f:if(condition: settings.swiperslider.backgroundColor, then: ' style="background-color:{settings.swiperslider.backgroundColor}"')}>
+						<f:render section="Image" arguments="{_all}" />
+						<f:if condition="{newsItem.title} || {newsItem.teaser} || {newsItem.bodytext}">
+							<div class="card-body"{f:if(condition: settings.swiperslider.color, then: ' style="color:{settings.swiperslider.color}"')}>
+								<f:if condition="{newsItem.title}">
+									<header>
+										<h{settings.swiperslider.newsTitleType} class="card-title">
+											{newsItem.title -> f:format.raw()}
+										</h{settings.swiperslider.newsTitleType}>
+									</header>
+								</f:if>
+								<f:if condition="{newsItem.teaser}">
+									<div class="news-teaser">
+										{newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+									</div>
+								</f:if>
+								<f:if condition="{newsItem.bodytext}">
+									<div class="news-bodytext">
+										{newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+									</div>
+								</f:if>
+							</div>
+						</f:if>
+					</div>
+				</n:link>
+			</div>
+		</f:for>
+	</div>
+	<f:if condition="{settings.swiperslider.navigation}">
+		<div class="swiper-button-prev prev-{contentObjectData.uid}"></div>
+		<div class="swiper-button-next next-{contentObjectData.uid}"></div>
+	</f:if>
+</div>
+<f:if condition="{settings.swiperslider.pagination}">
+	<div class="swiper-pagination"></div>
+</f:if>
+</f:section>
+</html>
+
+
+<f:section name="Image">
+<figure style="overflow: hidden">
+<picture>
+	<f:if condition="{newsItem.mediaPreviews}">
+		<f:then>
+			<f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+				<f:if condition="{mediaElement.originalResource.type} == 2">
+					<f:image
+					 image="{mediaElement}"
+					 class="img-fluid img-hover-zoom"
+					 title="{mediaElement.originalResource.title}"
+					 alt="{mediaElement.originalResource.alternative}"
+					 loading="{settings.list.media.image.lazyLoading}"
+					 width="{settings.swiperslider.width}c"
+					 height="{settings.swiperslider.height}c"
+					/>
+				</f:if>
+				<f:if condition="{mediaElement.originalResource.type} == 4">
+					<f:media
+					 file="{mediaElement}"
+					 class="img-fluid"
+					 width="{settings.swiperslider.width}"
+					 height="{settings.swiperslider.height}"
+					 additionalAttributes="{loop: '', muted: ''}"
+					/>
+				</f:if>
+			</f:alias>
+		</f:then>
+		<f:else>
+			<f:image src="{settings.list.media.dummyImage}"
+				 title="{newsItem.title}"
+				 alt="{mediaElement.originalResource.alternative}"
+				 width="{settings.swiperslider.width}c"
+				 height="{settings.swiperslider.height}c"/>
+		</f:else>
+	</f:if>
+</picture>
+</figure>
+</f:section>
