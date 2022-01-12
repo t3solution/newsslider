@@ -226,6 +226,7 @@ lib.math {
 	prioriCalc = intval
 }
 
+
 [{$plugin.tx_newsslider.settings.includeJquery} == 1]
 page.includeJSFooterlibs {
 jql = //ajax.googleapis.com/ajax/libs/jquery/{$plugin.tx_newsslider.settings.jQueryVersion}/jquery.min.js
@@ -237,4 +238,4 @@ disableCompression = 1
 excludeFromConcatenation = 1
 }
 }
-[end]
+[END]

@@ -1,53 +1,118 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
 
-call_user_func(function () {
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Http\ApplicationType;
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+use TYPO3\CMS\Core\Imaging\IconRegistry;
+use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use T3S\Newsslider\Controller\SliderController;
+use TYPO3\CMS\Backend\Preview\StandardPreviewRendererResolver;
 
-    /***************
-     * Make plugin available in frontend
-     */
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'T3S.newsslider',
-        'Pi1',
-        array(
-            'Slider' => 'flexslider, nivoslider, camera, slickslider, customslider',
-        )
-    );
+defined('TYPO3') or die();
 
-    # hooks
-#    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem'][] =
-#        'T3S\\Newsslider\\Hooks\\PreviewRenderer';
+(static function() {
 
-        
-        
-	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem'][] =
-	 \T3S\Newsslider\Hooks\PreviewRenderer::class;
+	/***************
+	 * Make plugin available in frontend
+	 */
+	ExtensionUtility::configurePlugin(
+		'Newsslider',
+		'flexslider',
+		[
+			SliderController::class => 'flexslider',
+		],
+		// non-cacheable actions
+		[
+			SliderController::class => '',
+		]
+	);
+
+	ExtensionUtility::configurePlugin(
+		'Newsslider',
+		'nivoslider',
+		[
+			SliderController::class => 'nivoslider',
+		],
+		// non-cacheable actions
+		[
+			SliderController::class => '',
+		]
+	);
 
 
-    $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['Domain/Repository/AbstractDemandedRepository.php']['findDemanded']['newsslider'] =
-        'T3S\\Newsslider\\Hooks\\Repository->modify';
+	ExtensionUtility::configurePlugin(
+		'Newsslider',
+		'camera',
+		[
+			SliderController::class => 'camera',
+		],
+		// non-cacheable actions
+		[
+			SliderController::class => '',
+		]
+	);
+
+	ExtensionUtility::configurePlugin(
+		'Newsslider',
+		'slickslider',
+		[
+			SliderController::class => 'slickslider',
+		],
+		// non-cacheable actions
+		[
+			SliderController::class => '',
+		]
+	);
+
+	ExtensionUtility::configurePlugin(
+		'Newsslider',
+		'customslider',
+		[
+			SliderController::class => 'customslider',
+		],
+		// non-cacheable actions
+		[
+			SliderController::class => '',
+		]
+	);
+
+	ExtensionUtility::configurePlugin(
+		'Newsslider',
+		'swiperslider',
+		[
+			SliderController::class => 'swiperslider',
+		],
+		// non-cacheable actions
+		[
+			SliderController::class => '',
+		]
+	);
 
 
-#	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['t3sbs_card'] =
-#	 \T3S\Newsslider\Hooks\PreviewRenderer::class;
+	$GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['Domain/Repository/AbstractDemandedRepository.php']['findDemanded']['newsslider'] =
+		'T3S\\Newsslider\\Hooks\\Repository->modify';
 
 
-    # Default TSconfig
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-        '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:newsslider/Configuration/TSconfig/ContentElementWizard.tsconfig">'
-    );
+	if (($GLOBALS['TYPO3_REQUEST'] ?? null) instanceof ServerRequestInterface
+		 && ApplicationType::fromRequest($GLOBALS['TYPO3_REQUEST'])->isBackend()
+	) {
+		/***************
+		 * Register Icons
+		 */
+		$iconRegistry = GeneralUtility::makeInstance(IconRegistry::class);
+		$iconRegistry->registerIcon(
+			'tx-newsslider-icon',
+			SvgIconProvider::class,
+			['source' => 'EXT:newsslider/Resources/Public/Icons/Extension.svg']
+		);
+	}
 
-    if (TYPO3_MODE === 'BE') {
-        /***************
-         * Register Icons
-         */
-        $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-        $iconRegistry->registerIcon(
-            'tx-newsslider-icon',
-            \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
-            ['source' => 'EXT:newsslider/Resources/Public/Icons/pi1.gif']
-        );
-    }
-});
+	/***************
+	 * Override preview of tt_content elements in page module
+	 */
+	$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['fluidBasedPageModule'] = true;
+	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['previewRendererResolver'] = StandardPreviewRendererResolver::class;
+
+})();

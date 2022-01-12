@@ -1,149 +1,162 @@
 <?php
+declare(strict_types=1);
 
 namespace T3S\Newsslider\Controller;
 
-/*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
- *
- * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
- */
-
+use GeorgRinger\News\Controller\NewsController;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
-/**
- * Slider Controller
+/*
+ * This file is part of the TYPO3 extension newsslider.
  *
- * @package TYPO3
- * @subpackage T3S\Newsslider\
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
  */
-class SliderController extends \GeorgRinger\News\Controller\NewsController
+class SliderController extends NewsController
 {
 
-    /**
-     * Output a flexslider view of news
-     *
-     * @param array $overwriteDemand
-     * @return return string the Rendered view
-     */
-    public function flexsliderAction(array $overwriteDemand = null)
-    {
+	/**
+	 * Output a flexslider view of news
+	 *
+	 */
+	public function flexsliderAction(array $overwriteDemand = null): ResponseInterface
+	{
 
-        $demand = parent::createDemandObjectFromSettings($this->settings);
+		$demand = parent::createDemandObjectFromSettings($this->settings);
 
-        if ($this->settings['disableOverrideDemand'] != 1 && $overwriteDemand !== null) {
-            $demand = parent::overwriteDemandObject($demand, $overwriteDemand);
-        }
+		if ($this->settings['disableOverrideDemand'] != 1 && $overwriteDemand !== null) {
+			$demand = parent::overwriteDemandObject($demand, $overwriteDemand);
+		}
 
-        $assignedValues = [
-            'news' => $this->newsRepository->findDemanded($demand),
-            'settings' => $this->settings
-        ];
-        $this->view->assignMultiple($assignedValues);
-    }
+		$assignedValues = [
+			'news' => $this->newsRepository->findDemanded($demand),
+			'settings' => $this->settings
+		];
+		$this->view->assignMultiple($assignedValues);
+		return $this->htmlResponse();
+	}
 
-    /**
-     * Output a nivolider view of news
-     *
-     * @param array $overwriteDemand
-     * @return return string the Rendered view
-     */
-    public function nivosliderAction(array $overwriteDemand = null)
-    {
+	/**
+	 * Output a nivolider view of news
+	 *
+	 */
+	public function nivosliderAction(array $overwriteDemand = null): ResponseInterface
+	{
 
-        $demand = parent::createDemandObjectFromSettings($this->settings);
+		$demand = parent::createDemandObjectFromSettings($this->settings);
 
-        if ($this->settings['disableOverrideDemand'] != 1 && $overwriteDemand !== null) {
-            $demand = parent::overwriteDemandObject($demand, $overwriteDemand);
-        }
+		if ($this->settings['disableOverrideDemand'] != 1 && $overwriteDemand !== null) {
+			$demand = parent::overwriteDemandObject($demand, $overwriteDemand);
+		}
 
-        $assignedValues = [
-            'news' => $this->newsRepository->findDemanded($demand),
-            'settings' => $this->settings
-        ];
-        $this->view->assignMultiple($assignedValues);
-    }
+		$assignedValues = [
+			'news' => $this->newsRepository->findDemanded($demand),
+			'settings' => $this->settings
+		];
+		$this->view->assignMultiple($assignedValues);
+		return $this->htmlResponse();
+	}
 
-    /**
-     * Output a camera slideshow view of news
-     *
-     * @param array $overwriteDemand
-     * @return return string the Rendered view
-     */
-    public function cameraAction(array $overwriteDemand = null)
-    {
+	/**
+	 * Output a camera slideshow view of news
+	 *
+	 */
+	public function cameraAction(array $overwriteDemand = null): ResponseInterface
+	{
 
-        $demand = parent::createDemandObjectFromSettings($this->settings);
+		$demand = parent::createDemandObjectFromSettings($this->settings);
 
-        if ($this->settings['disableOverrideDemand'] != 1 && $overwriteDemand !== null) {
-            $demand = parent::overwriteDemandObject($demand, $overwriteDemand);
-        }
+		if ($this->settings['disableOverrideDemand'] != 1 && $overwriteDemand !== null) {
+			$demand = parent::overwriteDemandObject($demand, $overwriteDemand);
+		}
 
-        $assignedValues = [
-            'news' => $this->newsRepository->findDemanded($demand),
-            'settings' => $this->settings
-        ];
-        $this->view->assignMultiple($assignedValues);
-    }
+		$assignedValues = [
+			'news' => $this->newsRepository->findDemanded($demand),
+			'settings' => $this->settings
+		];
+		$this->view->assignMultiple($assignedValues);
+		return $this->htmlResponse();
+	}
 
-    /**
-     * Output a slick slider view of news
-     *
-     * @param array $overwriteDemand
-     * @return return string the Rendered view
-     */
-    public function slicksliderAction(array $overwriteDemand = null)
-    {
+	/**
+	 * Output a slick slider view of news
+	 *
+	 */
+	public function slicksliderAction(array $overwriteDemand = null): ResponseInterface
+	{
 
-        $demand = parent::createDemandObjectFromSettings($this->settings);
+		$demand = parent::createDemandObjectFromSettings($this->settings);
 
-        if ($this->settings['disableOverrideDemand'] != 1 && $overwriteDemand !== null) {
-            $demand = parent::overwriteDemandObject($demand, $overwriteDemand);
-        }
+		if ($this->settings['disableOverrideDemand'] != 1 && $overwriteDemand !== null) {
+			$demand = parent::overwriteDemandObject($demand, $overwriteDemand);
+		}
 
-        $width = (int)$this->settings['slickslider']['width'];
-        $slidesToShow = (int)$this->settings['slickslider']['slidesToShow'] ?: 1;
-        $width = ceil($width / $slidesToShow);
+		$width = (int)$this->settings['slickslider']['width'];
+		$slidesToShow = (int)$this->settings['slickslider']['slidesToShow'] ?: 1;
+		$width = ceil($width / $slidesToShow);
+		$ratio = explode(':', $this->settings['slickslider']['ratio']);
+		$height = ceil(($width / (int)$ratio[0]) * (int)$ratio[1]);
 
-        $ratio = explode(':', $this->settings['slickslider']['ratio']);
-        $height = ceil(($width / (int)$ratio[0]) * (int)$ratio[1]);
+		$this->settings['slickslider']['width'] = $width;
+		$this->settings['slickslider']['height'] = $height;
 
-        $this->settings['slickslider']['width'] = $width;
-        $this->settings['slickslider']['height'] = $height;
+		$assignedValues = [
+			'news' => $this->newsRepository->findDemanded($demand),
+			'settings' => $this->settings
+		];
+		$this->view->assignMultiple($assignedValues);
+		return $this->htmlResponse();
+	}
 
-        $assignedValues = [
-            'news' => $this->newsRepository->findDemanded($demand),
-            'settings' => $this->settings
-        ];
-        $this->view->assignMultiple($assignedValues);
-    }
+	/**
+	 * Output a swiper slider view of news
+	 *
+	 */
+	public function swipersliderAction(array $overwriteDemand = null): ResponseInterface
+	{
 
-    /**
-     * Output a coustom slider view of news
-     *
-     * @param array $overwriteDemand
-     * @return return string the Rendered view
-     */
-    public function customsliderAction(array $overwriteDemand = null)
-    {
+		$demand = parent::createDemandObjectFromSettings($this->settings);
 
-        $demand = parent::createDemandObjectFromSettings($this->settings);
+		if ($this->settings['disableOverrideDemand'] != 1 && $overwriteDemand !== null) {
+			$demand = parent::overwriteDemandObject($demand, $overwriteDemand);
+		}
 
-        if ($this->settings['disableOverrideDemand'] != 1 && $overwriteDemand !== null) {
-            $demand = parent::overwriteDemandObject($demand, $overwriteDemand);
-        }
+		$ratio = $this->settings['swiperslider']['ratio'] ?: '16:9';
+		$ratio = explode(':', $ratio);
+		$width = (int)$this->settings['swiperslider']['width'];
+		$height = ceil(($width / (int)$ratio[0]) * (int)$ratio[1]);
 
-        $assignedValues = [
-            'news' => $this->newsRepository->findDemanded($demand),
-            'settings' => $this->settings
-        ];
-        $this->view->assignMultiple($assignedValues);
-    }
+		$this->settings['swiperslider']['width'] = $width;
+		$this->settings['swiperslider']['height'] = $height;
+
+		$assignedValues = [
+			'news' => $this->newsRepository->findDemanded($demand),
+			'settings' => $this->settings
+		];
+		$this->view->assignMultiple($assignedValues);
+		return $this->htmlResponse();
+	}
+
+	/**
+	 * Output a coustom slider view of news
+	 *
+	 */
+	public function customsliderAction(array $overwriteDemand = null): ResponseInterface
+	{
+
+		$demand = parent::createDemandObjectFromSettings($this->settings);
+
+		if ($this->settings['disableOverrideDemand'] != 1 && $overwriteDemand !== null) {
+			$demand = parent::overwriteDemandObject($demand, $overwriteDemand);
+		}
+
+		$assignedValues = [
+			'news' => $this->newsRepository->findDemanded($demand),
+			'settings' => $this->settings
+		];
+		$this->view->assignMultiple($assignedValues);
+		return $this->htmlResponse();
+	}
 
 }

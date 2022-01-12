@@ -1,7 +1,12 @@
 {
   "name": "t3s/newsslider",
   "description": "jQuery slider-plugins for versatile news extension (tx_news).",
-  "keywords": ["typo3", "typo3 cms", "news", "newsslider"],
+  "keywords": [
+    "typo3",
+    "typo3 cms",
+    "news",
+    "newsslider"
+  ],
   "homepage": "https://t3s-ext.de",
   "authors": [
     {
@@ -12,14 +17,17 @@
   "license": "GPL-2.0-or-later",
   "type": "typo3-cms-extension",
   "require": {
-    "typo3/cms-core": "^9.5 || ^10.4"
+    "typo3/cms-core": "^11.5.4",
+    "georgringer/news": "^8 || ^9"
   },
   "autoload": {
     "psr-4": {
       "T3S\\Newsslider\\": "Classes/"
     }
   },
-  "replace": {
-    "typo3-ter/newsslider": "self.version"
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "newsslider"
+    }
   }
 }
