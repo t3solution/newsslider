@@ -791,7 +791,32 @@
 							</config>
 						</TCEforms>
 					</settings.swiperslider.backgroundColor>
-
+					<settings.swiperslider.display>
+						<TCEforms>
+							<label>Show Teaser, Bodytext or both</label>
+							<config type="array">
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">Teaser only</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">Bodytext only</numIndex>
+										<numIndex index="1">2</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">Teaser &amp; Bodytext</numIndex>
+										<numIndex index="1">3</numIndex>
+									</numIndex>
+								</items>
+								<size type="integer">1</size>
+								<maxitems type="integer">1</maxitems>
+								<default>1</default>
+							</config>
+						</TCEforms>
+					</settings.swiperslider.display>
 				</el>
 			</ROOT>
 		</slider>
