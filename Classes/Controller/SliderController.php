@@ -130,6 +130,10 @@ class SliderController extends NewsController
 		$this->settings['swiperslider']['width'] = $width;
 		$this->settings['swiperslider']['height'] = $height;
 
+		if ( $this->settings['swiperslider']['autoplay'] ) {
+			$this->settings['swiperslider']['autodelay'] = $this->settings['swiperslider']['delay'] ?: 3000;
+		}
+
 		$assignedValues = [
 			'news' => $this->newsRepository->findDemanded($demand),
 			'settings' => $this->settings
