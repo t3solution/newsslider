@@ -6,9 +6,10 @@
 	<div class="swiper-wrapper">
 		<f:for each="{news}" as="newsItem">
 			<n:excludeDisplayedNews newsItem="{newsItem}"/>
-			<div class="swiper-slide"{f:if(condition: settings.swiperslider.autoplay, then: ' data-swiper-autoplay="{settings.swiperslider.delay}"')}>
+			<div class="swiper-slide"{f:if(condition: settings.swiperslider.autodelay, then: ' data-swiper-autoplay="{settings.swiperslider.autodelay}"')}>
 				<n:link newsItem="{newsItem}" settings="{settings}" class="slider-link no-decoration">
-					<div class="card rounded-0"{f:if(condition: settings.swiperslider.backgroundColor, then: ' style="background-color:{settings.swiperslider.backgroundColor}"')}>
+					<div class="card rounded-0"{f:if(condition: settings.swiperslider.backgroundColor,
+						 then: ' style="background-color:{settings.swiperslider.backgroundColor}"')}>
 						<f:render section="Image" arguments="{_all}" />
 						<f:if condition="{newsItem.title} || {newsItem.teaser} || {newsItem.bodytext}">
 							<div class="card-body"{f:if(condition: settings.swiperslider.color, then: ' style="color:{settings.swiperslider.color}"')}>
