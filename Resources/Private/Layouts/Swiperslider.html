@@ -15,7 +15,7 @@
 		tablet = {settings.swiperslider.breakpoints768},
 		desctop = {settings.swiperslider.breakpoints992},
 		lop = {settings.swiperslider.loop},
-		auto = {settings.swiperslider.autoplay},
+		auto = {settings.swiperslider.autoplay} ? true : false,
 		uid = {contentObjectData.uid};
 	var swiper = new Swiper('#swiper-{contentObjectData.uid}', {
 		slidesPerView: desctop,
