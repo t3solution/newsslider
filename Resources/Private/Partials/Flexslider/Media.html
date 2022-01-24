@@ -14,15 +14,17 @@
 		</f:alias>
 	</f:then>
 	<f:else>
-		<f:if condition="{settings.flexslider.imageLink} || {settings.flexslider.style} == 5">
-			<f:then>
-				<n:link newsItem="{newsItem}" settings="{settings}">
+		<f:if condition="{settings.displayDummyIfNoMedia}">
+			<f:if condition="{settings.flexslider.imageLink} || {settings.flexslider.style} == 5">
+				<f:then>
+					<n:link newsItem="{newsItem}" settings="{settings}">
+						<f:render section="dummy" arguments="{_all}"/>
+					</n:link>
+				</f:then>
+				<f:else>
 					<f:render section="dummy" arguments="{_all}"/>
-				</n:link>
-			</f:then>
-			<f:else>
-				<f:render section="dummy" arguments="{_all}"/>
-			</f:else>
+				</f:else>
+			</f:if>
 		</f:if>
 	</f:else>
 </f:if>
