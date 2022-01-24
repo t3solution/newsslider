@@ -26,13 +26,15 @@
 				</f:alias>
 			</f:then>
 			<f:else>
-				<n:link newsItem="{newsItem}" settings="{settings}">
-					<f:image src="{settings.list.media.dummyImage}"
-							 title="{newsItem.title}"
-							 alt="{mediaElement.originalResource.alternative}"
-							 width="{settings.customslider.width}c"
-							 height="{settings.customslider.height}c"/>
-				</n:link>
+				<f:if condition="{settings.displayDummyIfNoMedia}">
+					<n:link newsItem="{newsItem}" settings="{settings}">
+						<f:image src="{settings.list.media.dummyImage}"
+								 title="{newsItem.title}"
+								 alt="{mediaElement.originalResource.alternative}"
+								 width="{settings.customslider.width}c"
+								 height="{settings.customslider.height}c"/>
+					</n:link>
+				</f:if>
 			</f:else>
 		</f:if>
 	</f:for>
