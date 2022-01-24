@@ -78,11 +78,13 @@
 			</f:alias>
 		</f:then>
 		<f:else>
-			<f:image src="{settings.list.media.dummyImage}"
-				 title="{newsItem.title}"
-				 alt="{mediaElement.originalResource.alternative}"
-				 width="{settings.swiperslider.width}c"
-				 height="{settings.swiperslider.height}c"/>
+			<f:if condition="{settings.displayDummyIfNoMedia}">
+				<f:image src="{settings.list.media.dummyImage}"
+					 title="{newsItem.title}"
+					 alt="{mediaElement.originalResource.alternative}"
+					 width="{settings.swiperslider.width}c"
+					 height="{settings.swiperslider.height}c"/>
+			</f:if>
 		</f:else>
 	</f:if>
 </picture>
