@@ -60,9 +60,11 @@
 							 height="{f:cObject(typoscriptObjectPath:'lib.math',data:'{settings.flexslider.height}/4')}c"/>
 			</f:then>
 			<f:else>
-				<f:uri.image src="{settings.list.media.dummyImage}"
+				<f:if condition="{settings.displayDummyIfNoMedia}">
+					<f:uri.image src="{settings.list.media.dummyImage}"
 							 width="{f:cObject(typoscriptObjectPath:'lib.math',data:'({settings.flexslider.width}-8)/4')}c"
 							 height="{f:cObject(typoscriptObjectPath:'lib.math',data:'{settings.flexslider.height}/4')}c"/>
+				</f:if>
 			</f:else>
 		</f:if>
 	</f:alias>
