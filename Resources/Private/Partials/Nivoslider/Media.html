@@ -29,13 +29,15 @@
 			/>
 		</f:then>
 		<f:else>
-			<f:image src="{settings.list.media.dummyImage}"
-					 alt="dummy image"
-					 title="{f:if(condition: '{settings.nivoslider.captions}',then: '#htmlcaption-{i.cycle}')}"
-					 width="{settings.nivoslider.width}c"
-					 height="{settings.nivoslider.height}c"
-					 class="img-responsive img-fluid"
-			/>
+			<f:if condition="{settings.displayDummyIfNoMedia}">
+				<f:image src="{settings.list.media.dummyImage}"
+						 alt="dummy image"
+						 title="{f:if(condition: '{settings.nivoslider.captions}',then: '#htmlcaption-{i.cycle}')}"
+						 width="{settings.nivoslider.width}c"
+						 height="{settings.nivoslider.height}c"
+						 class="img-responsive img-fluid"
+				/>
+			</f:if>
 		</f:else>
 	</f:if>
 </f:section>
