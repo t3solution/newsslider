@@ -3,13 +3,13 @@
 <f:if condition="{news}">
 	<f:if condition="{settings.flexslider.cssFile}">
 		<f:then>
-			<newsslider:includeFile path="{settings.flexslider.cssFile}"/>
+			<f:asset.css identifier="flexslidercss" href="{settings.flexslider.cssFile}" />
 		</f:then>
 		<f:else>
-			<newsslider:includeFile path="EXT:newsslider/Resources/Public/Styles/Flexslider/flexslider.css"/>
+			<f:asset.css identifier="flexslidercss" href="EXT:newsslider/Resources/Public/Styles/Flexslider/flexslider.css" />
 		</f:else>
 	</f:if>
-	<newsslider:includeFile path="EXT:newsslider/Resources/Public/Scripts/jquery.flexslider-min.js"/>
+	<f:asset.script identifier="flexsliderjs" src="EXT:newsslider/Resources/Public/Scripts/jquery.flexslider-min.js" />
 	<newsslider:inlineJs contentObjectUid="{contentObjectData.uid}" action="flexslider" settings="{settings}"/>
 	<div id="flexslider_{contentObjectData.uid}"
 		 class="tx_newsslider flexslider{f:if(condition:'{settings.flexslider.style}==4',then:' carousel')}{f:if(condition:'{settings.flexslider.style}==5',then:' carousel')}"

@@ -6,6 +6,7 @@ namespace T3S\Newsslider\Controller;
 use GeorgRinger\News\Controller\NewsController;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /*
  * This file is part of the TYPO3 extension newsslider.
@@ -134,9 +135,15 @@ class SliderController extends NewsController
 			$this->settings['swiperslider']['autodelay'] = $this->settings['swiperslider']['delay'] ?: 3000;
 		}
 
+		$t3sbootstrapLocal = FALSE;
+		if ( ExtensionManagementUtility::isLoaded('t3sbootstrap') && !$this->settings['cdn'] ) {
+			$t3sbootstrapLocal = TRUE;
+		}
+
 		$assignedValues = [
 			'news' => $this->newsRepository->findDemanded($demand),
-			'settings' => $this->settings
+			'settings' => $this->settings,
+			't3sbootstrapLocal' => $t3sbootstrapLocal
 		];
 		$this->view->assignMultiple($assignedValues);
 		return $this->htmlResponse();

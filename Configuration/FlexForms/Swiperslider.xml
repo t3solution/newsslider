@@ -586,7 +586,9 @@
 				<TCEforms>
 					<sheetTitle>Swiper slider</sheetTitle>
 					<sheetShortDescr>Swiper slider settings</sheetShortDescr>
-					<sheetDescription>The required CSS and JS is integrated via CDN! &#xA; Please refer: newsslider/Resources/Private/Layouts/Swiperslider.html</sheetDescription>
+					<sheetDescription>The required CSS and JS is integrated via CDN! &#xA; Please refer: newsslider/Resources/Private/Layouts/Swiperslider.html &#xA;
+						If the ext:t3sbootstrap is loaded and the constant "cdn" is deactivated, the files are included locally!
+					</sheetDescription>
 				</TCEforms>
 				<type>array</type>
 				<el>
@@ -820,6 +822,5 @@
 				</el>
 			</ROOT>
 		</slider>
-
 	</sheets>
 </T3DataStructure>
