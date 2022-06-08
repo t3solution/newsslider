@@ -3,20 +3,20 @@
 <f:if condition="{news}">
 	<f:if condition="{settings.camera.cssFile}">
 		<f:then>
-			<newsslider:includeFile path="{settings.camera.cssFile}"/>
+			<f:asset.css identifier="cameracss" href="{settings.camera.cssFile}" />
 		</f:then>
 		<f:else>
-			<newsslider:includeFile path="EXT:newsslider/Resources/Public/Styles/Camera/camera.css"/>
+			<f:asset.css identifier="cameracss" href="EXT:newsslider/Resources/Public/Styles/Camera/camera.css" />
 		</f:else>
 	</f:if>
 	<f:if condition="{settings.camera.jQuery.mobile}">
-		<newsslider:includeFile path="EXT:newsslider/Resources/Public/Scripts/jquery.mobile.customized.min.js"/>
+		<f:asset.script identifier="jQuerymobile" src="EXT:newsslider/Resources/Public/Scripts/jquery.mobile.customized.min.js" />
 	</f:if>
-	<f:if condition="{settings.camera.jQuery.easing}">
-		<newsslider:includeFile path="EXT:newsslider/Resources/Public/Scripts/jquery.easing.1.3.js"/>
+	<f:if condition="{settings.camera.jQuery.easing}">		
+		<f:asset.script identifier="jQueryeasing" src="EXT:newsslider/Resources/Public/Scripts/jquery.easing.1.3.js" />
 	</f:if>
-	<newsslider:includeFile path="EXT:newsslider/Resources/Public/Scripts/camera.min.js"/>
-	<newsslider:inlineJs contentObjectUid="{contentObjectData.uid}" action="camera" settings="{settings}"/>
+	<f:asset.script identifier="camerajs" src="EXT:newsslider/Resources/Public/Scripts/camera.min.js" />
+	<newsslider:inlineJs contentObjectUid="{contentObjectData.uid}" action="camera" settings="{settings}"/>	
 	<div id="camera_wrap_{contentObjectData.uid}" class="tx_newsslider">
 		<f:render section="Camera"/>
 	</div>

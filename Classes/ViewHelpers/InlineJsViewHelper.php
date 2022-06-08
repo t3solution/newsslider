@@ -10,6 +10,10 @@ use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
+
+use TYPO3\CMS\Core\Page\AssetCollector;
+
+
 /*
  * This file is part of the TYPO3 extension newsslider.
  *
@@ -276,16 +280,7 @@ $(slickTrack).find(\'.card\').css(\'height\', slickTrackHeight + \'px\');
 				break;
 		}
 
-		if (ExtensionManagementUtility::isLoaded('vhs')) {
-			$asset = Asset::getInstance();
-			$asset->setType('js');
-			$asset->setName($name);
-			$asset->setContent($function . $inlineJS);
-			$asset->finalize();
-		} else {
-			$pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
+		GeneralUtility::makeInstance(AssetCollector::class)->addInlineJavaScript($name, $function . $inlineJS);
 
-			$pageRenderer->addJsFooterInlineCode($name, $function . $inlineJS);
-		}
 	}
 }
