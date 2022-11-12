@@ -10,7 +10,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'News slider',
-    'description' => 'jQuery slider-plugins for versatile news extension (tx_news).',
+    'description' => 'jQuery and vanilla slider-plugins for versatile news extension (tx_news).',
     'category' => 'plugin',
     'version' => '5.0.2',
     'state' => 'stable',
@@ -21,7 +21,7 @@ $EM_CONF[$_EXTKEY] = [
             'depends' => [
                     'typo3' => '11.5.4-11.9.99',
                     'php' => '7.4.0-8.0.99',
-                    'news' => '8.0.0-9.99.99' 
+                    'news' => '8.0.0-10.99.99' 
                 ],
             'conflicts' =>[],
             'suggests' =>[],
