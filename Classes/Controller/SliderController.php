@@ -162,9 +162,15 @@ class SliderController extends NewsController
 			$demand = parent::overwriteDemandObject($demand, $overwriteDemand);
 		}
 
+		$t3sbootstrapLocal = FALSE;
+		if ( ExtensionManagementUtility::isLoaded('t3sbootstrap') && !$this->settings['cdn'] ) {
+			$t3sbootstrapLocal = TRUE;
+		}
+
 		$assignedValues = [
 			'news' => $this->newsRepository->findDemanded($demand),
-			'settings' => $this->settings
+			'settings' => $this->settings,
+			't3sbootstrapLocal' => $t3sbootstrapLocal
 		];
 		$this->view->assignMultiple($assignedValues);
 		return $this->htmlResponse();
