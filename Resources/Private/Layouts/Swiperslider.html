@@ -2,14 +2,14 @@
 	  xmlns:newsslider="http://typo3.org/ns/T3S/Newsslider/ViewHelpers" data-namespace-typo3-fluid="true">
 <!--TYPO3SEARCH_end-->
 <f:if condition="{news}">
-	<f:if condition="{t3sbootstrap} && {cdn}">
+	<f:if condition="{t3sbootstrapLocal}">
 		<f:then>
-			<f:asset.css identifier="swipercss" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-			<f:asset.script identifier="swiperjs" src="https://unpkg.com/swiper@7/swiper-bundle.min.js" />
-		</f:then>
-		<f:else>
 			<f:asset.css identifier="swipercss" href="fileadmin/T3SB/Resources/Public/CSS/swiper-bundle.min.css" />
 			<f:asset.script identifier="swiperjs" src="fileadmin/T3SB/Resources/Public/JS/swiper-bundle.min.js" />
+		</f:then>
+		<f:else>
+			<f:asset.css identifier="swipercss" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+			<f:asset.script identifier="swiperjs" src="https://unpkg.com/swiper@8/swiper-bundle.min.js" />
 		</f:else>
 	</f:if>
 	<f:asset.css identifier="newsslider-swipercss-{contentObjectData.uid}">
