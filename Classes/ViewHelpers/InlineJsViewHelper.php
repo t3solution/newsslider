@@ -47,12 +47,13 @@ class InlineJsViewHelper extends AbstractViewHelper
 
 		$name = ' JS for news slider CE-' . $contentObjectUid . ' ';
 		$queryNoConflict = $settings['jqueryNoConflict'] ? 'jQuery.noConflict(); jQuery' : 'jQuery';
+		$function = '';
 
 		switch ($action) {
 			case 'flexslider':
 				// script-options
 				# 8 = 2*4 .flexslider border
-				$settings['flexslider']['thumbnumber'] = $settings['flexslider']['thumbnumber'] ? $settings['flexslider']['thumbnumber'] : 3;
+				$settings['flexslider']['thumbnumber'] = !empty($settings['flexslider']['thumbnumber']) ? $settings['flexslider']['thumbnumber'] : 3;
 				$itemWidth = intval(round(($settings['flexslider']['width'] - 8 - ($settings['flexslider']['thumbnumber'] *
 							$settings['flexslider']['itemMargin'] - $settings['flexslider']['itemMargin'])) / $settings['flexslider']['thumbnumber']));
 				$carousel = '';
@@ -129,7 +130,6 @@ class InlineJsViewHelper extends AbstractViewHelper
 
 				break;
 			case 'nivoslider':
-				$function = '';
 				if ($settings['nivoslider']['captions'] == 2) {
 					// animated captions
 					$inWidth = $settings['nivoslider']['captionMoveIn']['width'];
