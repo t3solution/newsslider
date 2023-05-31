@@ -1,0 +1,63 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:render partial="Slider/SwipersliderAssets" arguments="{_all}" />
+<div id="swiper-{contentObjectData.uid}" class="swiper">
+	<div class="swiper-wrapper">
+		<f:for each="{news}" as="newsItem">
+			<n:excludeDisplayedNews newsItem="{newsItem}"/>
+			<div class="swiper-slide"{f:if(condition: settings.swiperslider.autodelay, then: ' data-swiper-autoplay="{settings.swiperslider.autodelay}"')}>
+				<n:link newsItem="{newsItem}" settings="{settings}" class="slider-link no-decoration">
+					<div class="card rounded-0"{f:if(condition: settings.swiperslider.backgroundColor,
+						 then: ' style="background-color:{settings.swiperslider.backgroundColor}"')}>
+						<f:render partial="Slider/Image" arguments="{_all}" />
+						<f:if condition="{newsItem.title} || {newsItem.teaser} || {newsItem.bodytext}">
+							<div class="card-body"{f:if(condition: settings.swiperslider.color, then: ' style="color:{settings.swiperslider.color}"')}>
+								<f:if condition="{newsItem.title}">
+									<header>
+										<h{settings.swiperslider.newsTitleType} class="card-title">
+											{newsItem.title -> f:format.raw()}
+										</h{settings.swiperslider.newsTitleType}>
+									</header>
+								</f:if>
+								<f:if condition="{newsItem.teaser} && {settings.swiperslider.display} != '2'">
+									<div class="news-teaser">
+										<f:if condition="{settings.cropMaxCharacters}">
+											<f:then>
+												{newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}',
+												 respectWordBoundaries:'1') -> f:format.html()}
+											</f:then>
+											<f:else>
+												{newsItem.teaser -> f:format.html()}	
+											</f:else>
+										</f:if>
+									</div>
+								</f:if>
+								<f:if condition="{newsItem.bodytext} && {settings.swiperslider.display} != '1'">
+									<div class="news-bodytext">
+										<f:if condition="{settings.cropMaxCharacters}">
+											<f:then>
+												{newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}',
+												 respectWordBoundaries:'1') -> f:format.html()}
+											</f:then>
+											<f:else>
+												{newsItem.bodytext -> f:format.html()}	
+											</f:else>
+										</f:if>	
+									</div>
+								</f:if>
+							</div>
+						</f:if>
+					</div>
+				</n:link>
+			</div>
+		</f:for>
+	</div>
+	<f:if condition="{settings.swiperslider.navigation}">
+		<div class="swiper-button-prev prev-{contentObjectData.uid}"></div>
+		<div class="swiper-button-next next-{contentObjectData.uid}"></div>
+	</f:if>
+</div>
+<f:if condition="{settings.swiperslider.pagination}">
+	<div class="swiper-pagination"></div>
+</f:if>
+</html>

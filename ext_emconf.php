@@ -10,11 +10,11 @@
  * writing. "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = array (
-  'title' => 'News slider',
-  'description' => 'jQuery and vanilla slider-plugins for versatile news extension (tx_news).',
-  'category' => 'plugin',
-  'version' => '5.1.0',
+$EM_CONF[$_EXTKEY] = [
+  'title' => 'News slider Template-Layout',
+  'description' => 'Slider Template-Layout for versatile news extension (tx_news).',
+  'category' => 'templates',
+  'version' => '6.0.0',
   'state' => 'stable',
   'uploadfolder' => false,
   'clearcacheonload' => false,
@@ -22,19 +22,17 @@ $EM_CONF[$_EXTKEY] = array (
   'author_email' => 'typo3@t3solution.de',
   'author_company' => 't3solution',
   'constraints' => 
-  array (
+  [
     'depends' => 
-    array (
-      'typo3' => '11.5.4-11.99.99',
-      'php' => '8.0.0-8.2.99',
-      'news' => '11.0.0-11.99.99',
-    ),
+    [
+      'typo3' => '12.4.1-12.9.99',
+      'news' => '11.0.0-11.9.99',
+    ],
     'conflicts' => 
-    array (
-    ),
+    [
+    ],
     'suggests' => 
-    array (
-    ),
-  ),
-);
-
+    [
+    ],
+  ],
+];

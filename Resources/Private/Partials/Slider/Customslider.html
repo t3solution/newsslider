@@ -1,0 +1,34 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:asset.css identifier="swipercss" href="EXT:newsslider/Resources/Public/Styles/swiper-bundle.min.css" />
+<f:asset.script identifier="vanilla_swiperjs" src="EXT:newsslider/Resources/Public/Scripts/swiper-bundle.min.js" />
+
+<f:asset.css identifier="newsslider-swipercss-{contentObjectData.uid}">
+
+</f:asset.css>
+
+<f:asset.script identifier="vanilla_swiperjs-{contentObjectData.uid}">
+	// Swiper Slider
+</f:asset.script>
+
+
+<f:comment><!--
+
+	EXAMPLE
+	put your custom HTML markup here
+
+--></f:comment>
+
+<f:debug title="Results of customslider">{_all}</f:debug>
+
+<f:for each="{news}" as="newsItem">
+	<n:excludeDisplayedNews newsItem="{newsItem}"/>
+	<div class="swiper-slide"{f:if(condition: settings.swiperslider.autodelay, then: ' data-swiper-autoplay="{settings.swiperslider.autodelay}"')}>
+		<n:link newsItem="{newsItem}" settings="{settings}" class="slider-link no-decoration">
+			<f:render partial="Slider/Image" arguments="{_all}" />
+		</n:link>
+	</div>
+</f:for>
+
+</html>

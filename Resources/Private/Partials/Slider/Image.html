@@ -1,0 +1,40 @@
+<figure style="overflow: hidden">
+<picture>
+	<f:if condition="{newsItem.mediaPreviews}">
+		<f:then>
+			<f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+				<f:if condition="{mediaElement.originalResource.type} == 2">
+					<f:image
+						image="{mediaElement}"
+						class="img-fluid img-hover-zoom"
+						title="{mediaElement.originalResource.title}"
+						alt="{mediaElement.originalResource.alternative}"
+						loading="{settings.list.media.image.lazyLoading}"
+						width="{f:if(condition: settings.media.maxWidth, then: '{settings.media.maxWidth}c', else: '')}"
+						height="{f:if(condition: settings.media.maxHeight, then: '{settings.media.maxHeight}c', else: '')}"		 
+					/>
+				</f:if>
+				<f:if condition="{mediaElement.originalResource.type} == 4">
+					<f:media
+						file="{mediaElement}"
+						class="img-fluid"
+						width="{f:if(condition: settings.media.maxWidth, then: '{settings.media.maxWidth}c', else: '')}"
+						height="{f:if(condition: settings.media.maxHeight, then: '{settings.media.maxHeight}c', else: '')}"
+						additionalAttributes="{loop: '', muted: ''}"
+					/>
+				</f:if>
+			</f:alias>
+		</f:then>
+		<f:else>
+			<f:if condition="{settings.displayDummyIfNoMedia}">
+				<f:image src="{settings.list.media.dummyImage}"
+					title="{newsItem.title}"
+					alt="{mediaElement.originalResource.alternative}"
+					width="{f:if(condition: settings.media.maxWidth, then: '{settings.media.maxWidth}c', else: '')}"
+					height="{f:if(condition: settings.media.maxHeight, then: '{settings.media.maxHeight}c', else: '')}"
+				/>
+			</f:if>
+		</f:else>
+	</f:if>
+</picture>
+</figure>

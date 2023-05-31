@@ -1,0 +1,6 @@
+services:
+  T3S\Newsslider\EventListener\ModifyFlexformEvent:
+    tags:
+      - name: event.listener
+        identifier: 'newsslider-flexParsing'
+        event: TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureParsedEvent
