@@ -1,0 +1,53 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:asset.css identifier="swipercss" href="EXT:newsslider/Resources/Public/Styles/swiper-bundle.min.css" />
+<f:asset.script identifier="vanilla_swiperjs" src="EXT:newsslider/Resources/Public/Scripts/swiper-bundle.min.js" />
+
+<f:asset.css identifier="newsslider-swipercss-{contentObjectData.uid}">
+#swiper-{contentObjectData.uid}{width:100%;height:auto;display:flex;margin-bottom:1rem}#swiper-{contentObjectData.uid} .swiper-wrapper{height:auto}#swiper-{contentObjectData.uid} .swiper-slide{flex-direction:column;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;-webkit-justify-content:start;justify-content:start;-webkit-box-align:stretch;-ms-flex-align:stretch;-webkit-align-items:stretch;align-items:stretch}#swiper-{contentObjectData.uid} .swiper-slide img{display:block;width:100%;height:auto;object-fit:cover}#swiper-{contentObjectData.uid} .swiper-button-next,#swiper-{contentObjectData.uid} .swiper-button-prev{color:#fff;text-shadow:1px 1px 2px #000,0 0 25px #000,0 0 5px #000}#swiper-{contentObjectData.uid} .slider-link{height:100%}.swiper-pagination{margin-bottom:1rem;position:inherit}#swiper-{contentObjectData.uid} .news-teaser{font-size:1.25rem;font-weight:300}#swiper-{contentObjectData.uid} .card{height:100%!important}#swiper-{contentObjectData.uid} .no-decoration{text-decoration:none}#swiper-{contentObjectData.uid} .card img,#swiper-{contentObjectData.uid} .card video {-moz-transition:transform .5s ease-in-out!important;-webkit-transition:transform .5s ease-in-out!important;transition:transform .5s ease-in-out!important}#swiper-{contentObjectData.uid} .card:hover img,#swiper-{contentObjectData.uid} .card:hover video {-webkit-transform:scale(1.2);-ms-transform:scale(1.2);transform:scale(1.2)}#swiper-{contentObjectData.uid} .card::before {content:"";position:absolute;z-index:-1;left:50%;right:50%;bottom:0;background:var(--swiper-theme-color);height:4px;-webkit-transition-property:left,right;transition-property:left,right;-webkit-transition-duration:.3s;transition-duration:.3s;-webkit-transition-timing-function:ease-out;transition-timing-function:ease-out}#swiper-{contentObjectData.uid} .card:active::before,#swiper-{contentObjectData.uid} .card:focus::before,#swiper-{contentObjectData.uid} .card:hover::before {left:0;right:0}#swiper-{contentObjectData.uid} .card{display:inline-block;vertical-align:middle;-webkit-transform:perspective(1px) translateZ(0);transform:perspective(1px) translateZ(0);box-shadow:0 0 1px transparent;position:relative;overflow:hidden;-webkit-transform:scale(1)}@media (max-width: 575px) {#swiper-{contentObjectData.uid} .swiper-button-prev,#swiper-{contentObjectData.uid} .swiper-button-next{display:none}}
+</f:asset.css>
+
+<f:asset.script identifier="vanilla_swiperjs-{contentObjectData.uid}">
+	// Swiper Slider
+	var spb = {settings.swiperslider.spaceBetween},
+		spg = {settings.swiperslider.slidesPerGroup},
+		mobile = {settings.swiperslider.breakpoints576},
+		tablet = {settings.swiperslider.breakpoints768},
+		desctop = {settings.swiperslider.breakpoints992},
+		lop = {settings.swiperslider.loop},
+		auto = {settings.swiperslider.autoplay} ? true : false,
+		uid = {contentObjectData.uid};
+	var swiper = new Swiper('#swiper-{contentObjectData.uid}', {
+		slidesPerView: desctop,
+		spaceBetween: spb,
+		slidesPerGroup: spg,
+		loop: lop,
+		disableOnInteraction: false,
+		pagination: {
+			el: ".swiper-pagination",
+			clickable: true,
+		},
+		autoplay: auto,
+		navigation: {
+			nextEl: '.next-'+uid,
+			prevEl: '.prev-'+uid,
+		},
+		breakpoints: {
+			10: {
+				slidesPerView: 1,
+			},
+			576: {
+				slidesPerView: mobile,
+			},
+			768: {
+				slidesPerView: tablet,
+			},
+			992: {
+				slidesPerView: desctop,
+			},
+		},
+	});
+</f:asset.script>
+</html>
+	
