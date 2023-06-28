@@ -1,5 +1,4 @@
 
 tx_news.templateLayouts {
-   1 = Swiperslider
    44 = Swiperslider
 }
