@@ -80,11 +80,6 @@ defined('TYPO3') or die();
 		]
 	);
 
-
-	$GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['Domain/Repository/AbstractDemandedRepository.php']['findDemanded']['newsslider'] =
-		'T3S\\Newsslider\\Hooks\\Repository->modify';
-
-
 	if (($GLOBALS['TYPO3_REQUEST'] ?? null) instanceof \Psr\Http\Message\ServerRequestInterface
 		 && \TYPO3\CMS\Core\Http\ApplicationType::fromRequest($GLOBALS['TYPO3_REQUEST'])->isBackend()
 	) {
