@@ -1,217 +1,205 @@
-<T3DataStructure>
-	<meta>
-		<langDisable>1</langDisable>
-	</meta>
-	<sheets>
 
-		<!--
-			################################
-				 SHEET Slider
-			################################
-		-->
+<slider>
+	<ROOT>
+		<sheetTitle>Swiper slider</sheetTitle>
+		<sheetShortDescr>Swiper slider settings</sheetShortDescr>
+		<sheetDescription>Be sure to save, after changing the template layout!</sheetDescription>
+		<type>array</type>
+		<el>
+			<settings.swiperslider.breakpoints576>
+				<label>Slides per view - breakpoint > 576px</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<description>Allows to set different number of slides per view for different responsive breakpoints (screen sizes).</description>
+				<config>
+					<type>input</type>
+					<size>4</size>
+					<default>2</default>
+					<eval>int</eval>
+					<checkbox>0</checkbox>
+				</config>
+			</settings.swiperslider.breakpoints576>
+			<settings.swiperslider.breakpoints768>
+				<label>Slides per view - breakpoint > 768px</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<description>Allows to set different number of slides per view for different responsive breakpoints (screen sizes).</description>
+				<config>
+					<type>input</type>
+					<size>4</size>
+					<default>3</default>
+					<eval>int</eval>
+					<checkbox>0</checkbox>
+				</config>
+			</settings.swiperslider.breakpoints768>
+			<settings.swiperslider.breakpoints992>
+				<label>Slides per view - breakpoint > 992px</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<description>Allows to set different number of slides per view for different responsive breakpoints (screen sizes).</description>
+				<config>
+					<type>input</type>
+					<size>4</size>
+					<default>4</default>
+					<eval>int</eval>
+					<checkbox>0</checkbox>
+				</config>
+			</settings.swiperslider.breakpoints992>
+			<settings.swiperslider.slidesPerGroup>
+				<label>Slides per group</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<description>Set numbers of slides to define and enable group sliding. Useful to use with slidesPerView > 1</description>
+				<config>
+					<type>input</type>
+					<size>4</size>
+					<default>1</default>
+					<eval>int</eval>
+					<checkbox>0</checkbox>
+				</config>
+			</settings.swiperslider.slidesPerGroup>
+			<settings.swiperslider.spaceBetween>
+				<label>Space between</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<description>Distance between slides in px.</description>
+				<config>
+					<type>input</type>
+					<size>4</size>
+					<eval>int</eval>
+					<default>20</default>
+					<checkbox>0</checkbox>
+				</config>
+			</settings.swiperslider.spaceBetween>
+			<settings.swiperslider.loop>
+				<label>Loop</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<description>Set to true to enable continuous loop mode. 
+					Amount of slides in loop mode should be at least 2x of slidesPerView value.
+				</description>
+				<config>
+					<type>check</type>
+				</config>
+			</settings.swiperslider.loop>
+			<settings.swiperslider.navigation>
+				<label>Navigation</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<description>Set to true to show the navigation.</description>
+				<config>
+					<type>check</type>
+				</config>
+			</settings.swiperslider.navigation>
+			<settings.swiperslider.pagination>
+				<label>Pagination</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<description>Set to true to show the pagination.</description>
+				<config>
+					<type>check</type>
+				</config>
+			</settings.swiperslider.pagination>
+			<settings.swiperslider.autoplay>
+				<label>Autoplay</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<description>Set to true for autoplay.</description>
+				<onChange>reload</onChange>
+				<config>
+					<type>check</type>
+				</config>
+			</settings.swiperslider.autoplay>
+			<settings.swiperslider.delay>
+				<label>Delay between transitions (in ms)</label>
+				<displayCond>
+					<AND>
+						<numIndex index="0">FIELD:template.settings.templateLayout:=:44</numIndex>
+						<numIndex index="1">FIELD:slider.settings.swiperslider.autoplay:=:1</numIndex>
+					</AND>
+				</displayCond>
+				<description>Delay between transitions (in ms).</description>
+				<config>
+					<type>input</type>
+					<size>4</size>
+					<eval>int</eval>
+					<default>5000</default>
+					<checkbox>0</checkbox>
+				</config>
+			</settings.swiperslider.delay>
+			<settings.swiperslider.newsTitleType>
+				<label>News Title Type</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<config>
+					<type>select</type>
+					<renderType>selectSingle</renderType>
+					<items>
+						<numIndex index="0">
+							<numIndex index="label">H2</numIndex>
+							<numIndex index="value">2</numIndex>
+						</numIndex>
+						<numIndex index="1">
+							<numIndex index="label">H3</numIndex>
+							<numIndex index="value">3</numIndex>
+						</numIndex>
+						<numIndex index="2">
+							<numIndex index="label">H4</numIndex>
+							<numIndex index="value">4</numIndex>
+						</numIndex>
+						<numIndex index="3">
+							<numIndex index="label">H5</numIndex>
+							<numIndex index="value">5</numIndex>
+						</numIndex>
+					</items>
+					<size type="integer">1</size>
+					<maxitems type="integer">1</maxitems>
+					<default>4</default>
+				</config>
+			</settings.swiperslider.newsTitleType>
+			<settings.swiperslider.color>
+				<label>Color</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<config>
+					<type>color</type>
+					<default></default>
+					<size>10</size>
+					<checkbox>0</checkbox>
+				</config>
+			</settings.swiperslider.color>
+			<settings.swiperslider.backgroundColor>
+				<label>Background-Color</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<config>
+					<type>color</type>
+					<default></default>
+					<size>10</size>
+					<checkbox>0</checkbox>
+				</config>
+			</settings.swiperslider.backgroundColor>
+			<settings.swiperslider.display>
+				<label>Show Teaser, Bodytext or both</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<config>
+					<type>select</type>
+					<renderType>selectSingle</renderType>
+					<items>
+						<numIndex index="0">
+							<numIndex index="label">Teaser only</numIndex>
+							<numIndex index="value">1</numIndex>
+						</numIndex>
+						<numIndex index="1">
+							<numIndex index="label">Bodytext only</numIndex>
+							<numIndex index="value">2</numIndex>
+						</numIndex>
+						<numIndex index="2">
+							<numIndex index="label">Teaser &amp; Bodytext</numIndex>
+							<numIndex index="value">3</numIndex>
+						</numIndex>
+					</items>
+					<size type="integer">1</size>
+					<maxitems type="integer">1</maxitems>
+					<default>1</default>
+				</config>
+			</settings.swiperslider.display>
+			<settings.swiperslider.custom>
+				<label>Use Custom Template (own slider)</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<config>
+					<type>check</type>
+				</config>
+			</settings.swiperslider.custom>
+		</el>
+	</ROOT>
+</slider>
 
-		<slider>
-			<ROOT>
-				<sheetTitle>Swiper slider</sheetTitle>
-				<sheetShortDescr>Swiper slider settings</sheetShortDescr>
-				<sheetDescription>Be sure to save, after changing the template layout!</sheetDescription>
-				<type>array</type>
-				<el>
-					<settings.swiperslider.breakpoints576>
-						<label>Slides per view - breakpoint > 576px</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<description>Allows to set different number of slides per view for different responsive breakpoints (screen sizes).</description>
-						<config>
-							<type>input</type>
-							<size>4</size>
-							<default>2</default>
-							<eval>int</eval>
-							<checkbox>0</checkbox>
-						</config>
-					</settings.swiperslider.breakpoints576>
-					<settings.swiperslider.breakpoints768>
-						<label>Slides per view - breakpoint > 768px</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<description>Allows to set different number of slides per view for different responsive breakpoints (screen sizes).</description>
-						<config>
-							<type>input</type>
-							<size>4</size>
-							<default>3</default>
-							<eval>int</eval>
-							<checkbox>0</checkbox>
-						</config>
-					</settings.swiperslider.breakpoints768>
-					<settings.swiperslider.breakpoints992>
-						<label>Slides per view - breakpoint > 992px</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<description>Allows to set different number of slides per view for different responsive breakpoints (screen sizes).</description>
-						<config>
-							<type>input</type>
-							<size>4</size>
-							<default>4</default>
-							<eval>int</eval>
-							<checkbox>0</checkbox>
-						</config>
-					</settings.swiperslider.breakpoints992>
-					<settings.swiperslider.slidesPerGroup>
-						<label>Slides per group</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<description>Set numbers of slides to define and enable group sliding. Useful to use with slidesPerView > 1</description>
-						<config>
-							<type>input</type>
-							<size>4</size>
-							<default>1</default>
-							<eval>int</eval>
-							<checkbox>0</checkbox>
-						</config>
-					</settings.swiperslider.slidesPerGroup>
-					<settings.swiperslider.spaceBetween>
-						<label>Space between</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<description>Distance between slides in px.</description>
-						<config>
-							<type>input</type>
-							<size>4</size>
-							<eval>int</eval>
-							<default>20</default>
-							<checkbox>0</checkbox>
-						</config>
-					</settings.swiperslider.spaceBetween>
-					<settings.swiperslider.loop>
-						<label>Loop</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<description>Set to true to enable continuous loop mode. 
-							Amount of slides in loop mode should be at least 2x of slidesPerView value.
-						</description>
-						<config>
-							<type>check</type>
-						</config>
-					</settings.swiperslider.loop>
-					<settings.swiperslider.navigation>
-						<label>Navigation</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<description>Set to true to show the navigation.</description>
-						<config>
-							<type>check</type>
-						</config>
-					</settings.swiperslider.navigation>
-					<settings.swiperslider.pagination>
-						<label>Pagination</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<description>Set to true to show the pagination.</description>
-						<config>
-							<type>check</type>
-						</config>
-					</settings.swiperslider.pagination>
-					<settings.swiperslider.autoplay>
-						<label>Autoplay</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<description>Set to true for autoplay.</description>
-						<onChange>reload</onChange>
-						<config>
-							<type>check</type>
-						</config>
-					</settings.swiperslider.autoplay>
-					<settings.swiperslider.delay>
-						<label>Delay between transitions (in ms)</label>
-						<displayCond>
-							<AND>
-								<numIndex index="0">FIELD:template.settings.templateLayout:=:44</numIndex>
-								<numIndex index="1">FIELD:slider.settings.swiperslider.autoplay:=:1</numIndex>
-							</AND>
-						</displayCond>
-						<description>Delay between transitions (in ms).</description>
-						<config>
-							<type>input</type>
-							<size>4</size>
-							<eval>int</eval>
-							<default>5000</default>
-							<checkbox>0</checkbox>
-						</config>
-					</settings.swiperslider.delay>
-					<settings.swiperslider.newsTitleType>
-						<label>News Title Type</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<config>
-							<type>select</type>
-							<renderType>selectSingle</renderType>
-							<items>
-								<numIndex index="0">
-									<numIndex index="label">H2</numIndex>
-									<numIndex index="value">2</numIndex>
-								</numIndex>
-								<numIndex index="1">
-									<numIndex index="label">H3</numIndex>
-									<numIndex index="value">3</numIndex>
-								</numIndex>
-								<numIndex index="2">
-									<numIndex index="label">H4</numIndex>
-									<numIndex index="value">4</numIndex>
-								</numIndex>
-								<numIndex index="3">
-									<numIndex index="label">H5</numIndex>
-									<numIndex index="value">5</numIndex>
-								</numIndex>
-							</items>
-							<size type="integer">1</size>
-							<maxitems type="integer">1</maxitems>
-							<default>4</default>
-						</config>
-					</settings.swiperslider.newsTitleType>
-					<settings.swiperslider.color>
-						<label>Color</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<config>
-							<type>color</type>
-							<default></default>
-							<size>10</size>
-							<checkbox>0</checkbox>
-						</config>
-					</settings.swiperslider.color>
-					<settings.swiperslider.backgroundColor>
-						<label>Background-Color</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<config>
-							<type>color</type>
-							<default></default>
-							<size>10</size>
-							<checkbox>0</checkbox>
-						</config>
-					</settings.swiperslider.backgroundColor>
-					<settings.swiperslider.display>
-						<label>Show Teaser, Bodytext or both</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<config>
-							<type>select</type>
-							<renderType>selectSingle</renderType>
-							<items>
-								<numIndex index="0">
-									<numIndex index="label">Teaser only</numIndex>
-									<numIndex index="value">1</numIndex>
-								</numIndex>
-								<numIndex index="1">
-									<numIndex index="label">Bodytext only</numIndex>
-									<numIndex index="value">2</numIndex>
-								</numIndex>
-								<numIndex index="2">
-									<numIndex index="label">Teaser &amp; Bodytext</numIndex>
-									<numIndex index="value">3</numIndex>
-								</numIndex>
-							</items>
-							<size type="integer">1</size>
-							<maxitems type="integer">1</maxitems>
-							<default>1</default>
-						</config>
-					</settings.swiperslider.display>
-					<settings.swiperslider.custom>
-						<label>Use Custom Template (own slider)</label>
-						<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-						<config>
-							<type>check</type>
-						</config>
-					</settings.swiperslider.custom>
-				</el>
-			</ROOT>
-		</slider>
-	</sheets>
-</T3DataStructure>

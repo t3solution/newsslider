@@ -3,13 +3,13 @@
 plugin.tx_news {
 	view {
 		templateRootPaths {
-			7 = EXT:newsslider/Resources/Private/Templates/
+			2444 = EXT:newsslider/Resources/Private/Templates/
 		}
 		partialRootPaths {
-			7 = EXT:newsslider/Resources/Private/Partials/
+			2444 = EXT:newsslider/Resources/Private/Partials/
 		}
 		layoutRootPaths {
-			7 = EXT:newsslider/Resources/Private/Layouts/
+			2444 = EXT:newsslider/Resources/Private/Layouts/
 		}
 	}
 }
