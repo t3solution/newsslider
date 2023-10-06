@@ -18,9 +18,11 @@ class ModifyFlexformEvent
 		 && ($identifier['dataStructureKey'] === '*,news_pi1' || $identifier['dataStructureKey'] === '*,news_newsliststicky')) {
 
 			$swiperfile = GeneralUtility::getFileAbsFileName('EXT:newsslider/Configuration/FlexForms/Swiperslider.xml');
-			$swipercontent = @file_get_contents($swiperfile);
+			$swipercontent = file_get_contents($swiperfile);
+
 			if ($swipercontent) {
-				ArrayUtility::mergeRecursiveWithOverrule($dataStructure, GeneralUtility::xml2array($swipercontent));
+				$extraDataStructure['sheets']['slider'] = GeneralUtility::xml2array($swipercontent);
+				ArrayUtility::mergeRecursiveWithOverrule($dataStructure, $extraDataStructure);
 			}
 		}
 
