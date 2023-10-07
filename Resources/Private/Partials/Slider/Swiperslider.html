@@ -2,10 +2,6 @@
 	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:render partial="Slider/SwipersliderAssets" arguments="{_all}" />
 
-
-<f:debug title="Results of customers">{_all}</f:debug>
-
-
 <div id="swiper-{contentObjectData.uid}" class="swiper">
 	<div class="swiper-wrapper">
 		<f:for each="{news}" as="newsItem">
