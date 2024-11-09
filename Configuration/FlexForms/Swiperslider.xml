@@ -69,7 +69,7 @@
 			<settings.swiperslider.loop>
 				<label>Loop</label>
 				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
-				<description>Set to true to enable continuous loop mode. 
+				<description>Set to true to enable continuous loop mode.
 					Amount of slides in loop mode should be at least 2x of slidesPerView value.
 				</description>
 				<config>
@@ -126,20 +126,20 @@
 					<renderType>selectSingle</renderType>
 					<items>
 						<numIndex index="0">
-							<numIndex index="label">H2</numIndex>
-							<numIndex index="value">2</numIndex>
+							<label>H2</label>
+							<value>2</value>
 						</numIndex>
 						<numIndex index="1">
-							<numIndex index="label">H3</numIndex>
-							<numIndex index="value">3</numIndex>
+							<label>H3</label>
+							<value>3</value>
 						</numIndex>
 						<numIndex index="2">
-							<numIndex index="label">H4</numIndex>
-							<numIndex index="value">4</numIndex>
+							<label>H4</label>
+							<value>4</value>
 						</numIndex>
 						<numIndex index="3">
-							<numIndex index="label">H5</numIndex>
-							<numIndex index="value">5</numIndex>
+							<label>H5</label>
+							<value>5</value>
 						</numIndex>
 					</items>
 					<size type="integer">1</size>
@@ -175,16 +175,16 @@
 					<renderType>selectSingle</renderType>
 					<items>
 						<numIndex index="0">
-							<numIndex index="label">Teaser only</numIndex>
-							<numIndex index="value">1</numIndex>
+							<label>Teaser only</label>
+							<value>1</value>
 						</numIndex>
 						<numIndex index="1">
-							<numIndex index="label">Bodytext only</numIndex>
-							<numIndex index="value">2</numIndex>
+							<label>Bodytext only</label>
+							<value>2</value>
 						</numIndex>
 						<numIndex index="2">
-							<numIndex index="label">Teaser &amp; Bodytext</numIndex>
-							<numIndex index="value">3</numIndex>
+							<label>Teaser &amp; Bodytext</label>
+							<value>3</value>
 						</numIndex>
 					</items>
 					<size type="integer">1</size>

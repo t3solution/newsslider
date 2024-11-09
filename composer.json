@@ -18,8 +18,8 @@
   "license": "GPL-2.0-or-later",
   "type": "typo3-cms-extension",
   "require": {
-    "typo3/cms-core": "^12",
-    "georgringer/news": "^11"
+    "typo3/cms-core": "^12 || ^13",
+    "georgringer/news": "^12"
   },
   "autoload": {
     "psr-4": {
