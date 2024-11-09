@@ -14,24 +14,23 @@ $EM_CONF[$_EXTKEY] = [
   'title' => 'News slider Template-Layout',
   'description' => 'Slider Template-Layout for versatile news extension (tx_news).',
   'category' => 'templates',
-  'version' => '6.0.1',
+  'version' => '7.0.0',
   'state' => 'stable',
-  'uploadfolder' => false,
   'clearcacheonload' => false,
   'author' => 'Helmut Hackbarth',
   'author_email' => 'typo3@t3solution.de',
   'author_company' => 't3solution',
-  'constraints' => 
+  'constraints' =>
   [
-    'depends' => 
+    'depends' =>
     [
-      'typo3' => '12.4.1-12.9.99',
-      'news' => '11.0.0-11.9.99',
+      'typo3' => '12.4.22-13.99.99',
+      'news' => '12.0.0-12.99.99',
     ],
-    'conflicts' => 
+    'conflicts' =>
     [
     ],
-    'suggests' => 
+    'suggests' =>
     [
     ],
   ],
