@@ -6,7 +6,7 @@
 	<div class="swiper-wrapper">
 		<f:for each="{news}" as="newsItem">
 			<n:excludeDisplayedNews newsItem="{newsItem}"/>
-			<div class="swiper-slide"{f:if(condition: settings.swiperslider.autodelay, then: ' data-swiper-autoplay="{settings.swiperslider.autodelay}"')}>
+			<div class="swiper-slide"{f:if(condition: settings.swiperslider.delay, then: ' data-swiper-autoplay="{settings.swiperslider.delay}"')}>
 				<n:link newsItem="{newsItem}" settings="{settings}" class="slider-link no-decoration">
 					<div class="card rounded-0"{f:if(condition: settings.swiperslider.backgroundColor,
 						 then: ' style="background-color:{settings.swiperslider.backgroundColor}"')}>
