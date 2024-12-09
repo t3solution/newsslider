@@ -1,0 +1,4 @@
+name: t3s/newsslider
+label: "News Slider"
+dependencies:
+  - georgringer/news

@@ -1,4 +1,2 @@
-
-tx_news.templateLayouts {
-   44 = Swiperslider
-}
+# Import page TSconfig globally until dropping TYPO3 12 support
+@import 'EXT:newsslider/Configuration/Sets/NewsSlider/page.tsconfig'
