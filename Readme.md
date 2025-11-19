@@ -23,13 +23,28 @@ You must have installed tx_news.
 
 #### Installation using Composer
 
-The recommended way to install the extension is by using Composer. In your Composer based TYPO3 project root, just do `composer require t3s/newsslider`. 
+The recommended way to install the extension is by using Composer. In your Composer based TYPO3 project root, just do `composer require t3s/newsslider`.
 
 #### Installation as extension from TYPO3 Extension Repository (TER)
 
 Download and install the extension with the extension manager module.
 
-### 2) Template selection
+### 2) Include the Set "News Slider" (TYPO3 13 only)
+
+Include the set "News Slider" in your site configuration:
+[Using a site set as dependency in a site](https://docs.typo3.org/permalink/t3coreapi:site-sets-usage>)
+
+```
+base: 'https://example.com/'
+rootPageId: 1
+dependencies:
+  - t3s/newsslider
+```
+
+Or let your site packages site set depend on `t3s/newsslider`:
+[Defining the site set with a fluid_styled_content dependency](https://docs.typo3.org/permalink/t3coreapi:site-sets-example-site-package-set)
+
+### 3) Template selection
 
 For the PlugIn "news_pi1" and "news_newsliststicky" a new Template-Layout "Swiperslider" is provided!
 

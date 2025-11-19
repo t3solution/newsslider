@@ -1,15 +1,2 @@
-
-
-plugin.tx_news {
-	view {
-		templateRootPaths {
-			2444 = EXT:newsslider/Resources/Private/Templates/
-		}
-		partialRootPaths {
-			2444 = EXT:newsslider/Resources/Private/Partials/
-		}
-		layoutRootPaths {
-			2444 = EXT:newsslider/Resources/Private/Layouts/
-		}
-	}
-}
+# As a Fallback import TypoScript globally if TypoScript Records are used.
+@import 'EXT:newsslider/Configuration/Sets/NewsSlider/settings.typoscript'
