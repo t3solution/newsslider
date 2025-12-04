@@ -152,9 +152,7 @@
 				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
 				<config>
 					<type>color</type>
-					<default></default>
-					<size>10</size>
-					<checkbox>0</checkbox>
+					<opacity>true</opacity>
 				</config>
 			</settings.swiperslider.color>
 			<settings.swiperslider.backgroundColor>
@@ -162,9 +160,7 @@
 				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
 				<config>
 					<type>color</type>
-					<default></default>
-					<size>10</size>
-					<checkbox>0</checkbox>
+					<opacity>true</opacity>
 				</config>
 			</settings.swiperslider.backgroundColor>
 			<settings.swiperslider.display>
@@ -199,6 +195,13 @@
 					<type>check</type>
 				</config>
 			</settings.swiperslider.custom>
+			<settings.swiperslider.disableCss>
+				<label>Disable custom CSS</label>
+				<displayCond>FIELD:template.settings.templateLayout:=:44</displayCond>
+				<config>
+					<type>check</type>
+				</config>
+			</settings.swiperslider.disableCss>
 		</el>
 	</ROOT>
 </slider>

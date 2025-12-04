@@ -14,7 +14,7 @@ $EM_CONF[$_EXTKEY] = [
   'title' => 'News slider Template-Layout',
   'description' => 'Slider Template-Layout for versatile news extension (tx_news).',
   'category' => 'templates',
-  'version' => '7.0.1',
+  'version' => '14.0.0',
   'state' => 'stable',
   'clearcacheonload' => false,
   'author' => 'Helmut Hackbarth',
@@ -24,8 +24,8 @@ $EM_CONF[$_EXTKEY] = [
   [
     'depends' =>
     [
-      'typo3' => '12.4.22-13.99.99',
-      'news' => '12.0.0-12.99.99',
+      'typo3' => '13.4.20-14.4.99',
+      'news' => '13.0.0-14.99.99',
     ],
     'conflicts' =>
     [
