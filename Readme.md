@@ -1,11 +1,11 @@
 
 # TYPO3 Extension "newsslider"
 
-newsslider © 2013-2023, Helmut Hackbarth, <typo3@t3solution.de>
+newsslider © 2013-2025, Helmut Hackbarth, <typo3@t3solution.de>
 
-depends on news © 2010-2023, Georg Ringer <typo3@ringerge.org>
+depends on news © 2010-2025, Georg Ringer <typo3@ringerge.org>
 
-Swiper by © 2014-2023, Vladimir Kharlampidi https://swiperjs.com/
+Swiper by © 2014-2025, Vladimir Kharlampidi https://swiperjs.com/
 
 This document is published under the Open Content License available from http://www.opencontent.org/opl.shtml
 The content of this document is related to TYPO3 - a GNU/GPL CMS/Framework available from www.typo3.org
@@ -29,7 +29,7 @@ The recommended way to install the extension is by using Composer. In your Compo
 
 Download and install the extension with the extension manager module.
 
-### 2) Include the Set "News Slider" (TYPO3 13 only)
+### 2) Include the Set "News Slider"
 
 Include the set "News Slider" in your site configuration:
 [Using a site set as dependency in a site](https://docs.typo3.org/permalink/t3coreapi:site-sets-usage>)
