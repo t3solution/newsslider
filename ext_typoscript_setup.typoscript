@@ -1,2 +1,0 @@
-# As a Fallback import TypoScript globally if TypoScript Records are used.
-@import 'EXT:newsslider/Configuration/Sets/NewsSlider/settings.typoscript'
